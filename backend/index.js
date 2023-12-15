@@ -13,3 +13,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const jwt = require("jsonwebtoken");
+
+mongoose
+  .connect("mongodb+srv://ziyamuslum:ziya@ecom-cluster.py0vfbp.mongodb.net/", {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB Connected!");
+  })
+  .catch((err) => console.log("MongoDB Connection error: ", err));
+
+app.listen(port, () => {
+  console.log(`Server is listening on port: ${port}`);
+});
