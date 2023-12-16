@@ -6,6 +6,7 @@ import {
   Image,
   KeyboardAvoidingView,
   TextInput,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import shoppingBasket from "../images/shopping-basket.png";
@@ -104,6 +105,49 @@ const LoginScreen = () => {
             />
           </View>
         </View>
+
+        <View
+          style={{
+            marginTop: 10,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Text>Keep me logged in</Text>
+          <Text style={{ color: "#3498DB" }}>Forgot password?</Text>
+        </View>
+
+        <View style={{ marginTop: 50 }} />
+
+        <Pressable
+          style={{
+            width: 200,
+            backgroundColor: "#3498DB",
+            borderRadius: 10,
+            marginLeft: "auto",
+            marginRight: "auto",
+            padding: 15,
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              textAlign: "center",
+              fontSize: 17,
+              fontWeight: "bold",
+            }}
+          >
+            Login
+          </Text>
+        </Pressable>
+
+        <Pressable style={{ marginTop: 20 }}>
+          <Text style={{ textAlign: "center" }}>
+            Don't have an account?{" "}
+            <Text style={{ color: "#3498DB" }}>Sign up</Text>
+          </Text>
+        </Pressable>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
