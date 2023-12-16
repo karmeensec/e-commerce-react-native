@@ -7,11 +7,22 @@ import {
   KeyboardAvoidingView,
   TextInput,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import shoppingBasket from "../images/shopping-basket.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+  };
+
+  const handlePasswordChange = (text) => {
+    setPassword(text);
+  };
+
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "#FBFCFC", alignItems: "center" }}
@@ -56,7 +67,12 @@ const LoginScreen = () => {
               size={24}
               color="black"
             />
-            <TextInput placeholder="Enter your email" style={{ width: 250 }} />
+            <TextInput
+              placeholder="Enter your email"
+              style={{ width: 250, fontSize: email ? 15 : 15 }}
+              value={email}
+              onChangeText={handleEmailChange}
+            />
           </View>
         </View>
 
@@ -81,7 +97,10 @@ const LoginScreen = () => {
             />
             <TextInput
               placeholder="Enter your password"
-              style={{ width: 250 }}
+              style={{ width: 250, fontSize: password ? 15 : 15 }}
+              value={password}
+              onChangeText={handlePasswordChange}
+              secureTextEntry={true}
             />
           </View>
         </View>
