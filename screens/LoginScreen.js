@@ -11,10 +11,13 @@ import {
 import React, { useState } from "react";
 import shoppingBasket from "../images/shopping-basket.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigation = useNavigation();
 
   const handleEmailChange = (text) => {
     setEmail(text);
@@ -22,6 +25,10 @@ const LoginScreen = () => {
 
   const handlePasswordChange = (text) => {
     setPassword(text);
+  };
+
+  const handleLoginNavigation = () => {
+    navigation.navigate("Register");
   };
 
   return (
@@ -142,7 +149,7 @@ const LoginScreen = () => {
           </Text>
         </Pressable>
 
-        <Pressable style={{ marginTop: 20 }}>
+        <Pressable style={{ marginTop: 20 }} onPress={handleLoginNavigation}>
           <Text style={{ textAlign: "center" }}>
             Don't have an account?{" "}
             <Text style={{ color: "#3498DB" }}>Sign up</Text>
