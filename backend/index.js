@@ -18,8 +18,8 @@ app.use(bodyParser.json());
 
 mongoose
   .connect("mongodb+srv://ziyamuslum:ziya@ecom-cluster.py0vfbp.mongodb.net/", {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
   .then(() => {
     console.log("MongoDB Connected!");
@@ -51,7 +51,7 @@ const sendVerificationEmail = async (email, verificationToken) => {
     from: "ecommerce.com",
     to: email,
     subject: "Ecommerce email verification",
-    text: `Please click the following link to verify your email address: http://localhost:8000/verify/${verificationToken}`,
+    text: `Please click the following link to verify your email address: http://10.0.2.2:8000/verify/${verificationToken}`,
   };
 
   // Sending an email
@@ -68,6 +68,7 @@ const sendVerificationEmail = async (email, verificationToken) => {
 app.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    console.log("Received request payload:", req.body);
 
     // Check if the user is already registered
 
