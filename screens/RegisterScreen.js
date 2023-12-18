@@ -7,12 +7,14 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Pressable,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import shoppingBasket from "../images/shopping-basket.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
+import axios from "axios";
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState("");
@@ -35,6 +37,32 @@ const RegisterScreen = () => {
 
   const handleNameChange = (text) => {
     setName(text);
+  };
+
+  const handleRegister = () => {
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+    };
+
+    // Sending a post request to the backend
+
+    axios
+      .post("http://localhost:8000/register", user)
+      .then((res) => {
+        console.log("Register post request response: ", res);
+
+        Alert.alert("Registration successful!");
+
+        setName("");
+        setEmail("");
+        setPassword("");
+      })
+      .catch((error) => {
+        Alert.alert("Registration failed");
+        console.log("Registration post request error: ", error);
+      });
   };
 
   return (
@@ -158,6 +186,7 @@ const RegisterScreen = () => {
         <View style={{ marginTop: 50 }} />
 
         <Pressable
+          onPress={handleRegister}
           style={{
             width: 200,
             backgroundColor: "#3498DB",
