@@ -62,7 +62,7 @@ const LoginScreen = () => {
         const token = res.data.token;
 
         AsyncStorage.setItem("authToken", token);
-        navigation.replace("Home");
+        navigation.navigate("Main");
       })
       .catch((error) => {
         Alert.alert("Login failed", "Invalid Email!");
