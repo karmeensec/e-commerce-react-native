@@ -46,22 +46,34 @@ const RegisterScreen = () => {
       password: password,
     };
 
+    console.log("Request Payload:", user);
+
     // Sending a post request to the backend
 
     axios
-      .post("http://localhost:8000/register", user)
+      .post("http://10.0.2.2:8000/register", user, {
+        headers: {
+          Accept: "application/json",
+          "content-type": "application/json",
+        },
+      })
       .then((res) => {
         console.log("Register post request response: ", res);
+        console.log("Register post request response: ", res.data);
 
-        Alert.alert("Registration successful!");
+        Alert.alert(
+          "Registration successful",
+          "You have successfully registered!"
+        );
 
         setName("");
         setEmail("");
         setPassword("");
       })
       .catch((error) => {
-        Alert.alert("Registration failed");
+        Alert.alert("Registration failed", "Error occurred while registering!");
         console.log("Registration post request error: ", error);
+        console.error("Registration post request error: ", error.message);
       });
   };
 
