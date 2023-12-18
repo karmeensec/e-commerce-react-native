@@ -12,6 +12,8 @@ import React, { useState } from "react";
 import shoppingBasket from "../images/shopping-basket.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -29,6 +31,44 @@ const LoginScreen = () => {
 
   const handleLoginNavigation = () => {
     navigation.navigate("Register");
+  };
+
+  const handleLogin = () => {
+    const user = {
+      email: email,
+      password: password,
+    };
+
+    console.log("Request Payload:", user, {
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    });
+
+    // Sending a post request to the backend
+
+    axios
+      .post("http://10.0.2.2:8000/login", user, {
+        headers: {
+          Accept: "application/json",
+          "content-type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log("Login post request response: ", res);
+        console.log("Login post request response: ", res.data);
+
+        const token = res.data.token;
+
+        AsyncStorage.setItem("authToken", token);
+        navigation.replace("Home");
+      })
+      .catch((error) => {
+        Alert.alert("Login failed", "Invalid Email!");
+        console.log("Login post request error: ", error);
+        console.error("Login post request error: ", error.message);
+      });
   };
 
   return (
@@ -128,6 +168,7 @@ const LoginScreen = () => {
         <View style={{ marginTop: 50 }} />
 
         <Pressable
+          onPress={handleLogin}
           style={{
             width: 200,
             backgroundColor: "#3498DB",
