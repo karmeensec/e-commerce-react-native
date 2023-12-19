@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
   return (
@@ -51,6 +52,26 @@ const HomeScreen = () => {
           </Pressable>
 
           <Ionicons name="mic-outline" size={26} color="black" />
+        </View>
+
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: 5,
+            padding: 10,
+            backgroundColor: "#7FB3D5",
+          }}
+        >
+          <Ionicons name="location-outline" size={24} color="black" />
+
+          <Pressable>
+            <Text style={{ fontSize: 13, fontWeight: "500" }}>
+              Deliver to Kamil - Patrice Lumumby 16/18
+            </Text>
+          </Pressable>
+
+          <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
         </View>
       </ScrollView>
     </SafeAreaView>
