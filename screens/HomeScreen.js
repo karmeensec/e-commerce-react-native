@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { SliderBox } from "react-native-image-slider-box";
 
 const HomeScreen = () => {
   const list = [
@@ -50,6 +51,13 @@ const HomeScreen = () => {
       image: require("../images/fashion.png"),
       name: "Fashion",
     },
+  ];
+
+  const images = [
+    "https://blog.placeit.net/wp-content/uploads/2021/11/ad-banner-maker-announcing-discounts-for-black-friday.png",
+    "https://m-cdn.phonearena.com/images/article/139475-wide-two_1200/Best-Prime-Day-Google-Pixel-phone-deals-Superb-discounts-on-Pixel-phones-right-now.webp?1689231622",
+    "https://www.homesforheroes.com/wp-content/uploads/2021/05/young-couple-shopping-online-in-kitchen-on-laptop-wife-holding-credit-card-looking-for-discounts-for-police-Homes-for-Heroes.jpg",
+    "https://images.macrumors.com/t/p4OKdf4BqxBekUQvLEJQ9p5J6OE=/800x0/article-new/2023/10/Prime-Big-Deal-Days-Feature-Best-Apple-Discounts.jpg?lossy",
   ];
 
   return (
@@ -92,7 +100,6 @@ const HomeScreen = () => {
 
           <Ionicons name="mic-outline" size={26} color="black" />
         </View>
-
         <View
           style={{
             flexDirection: "row",
@@ -112,7 +119,6 @@ const HomeScreen = () => {
 
           <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
         </View>
-
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {list.map((item, index) => (
             <Pressable
@@ -148,6 +154,15 @@ const HomeScreen = () => {
             </Pressable>
           ))}
         </ScrollView>
+
+        <SliderBox
+          images={images}
+          autoPlay
+          circleLoop
+          dotColor={"#F2F3F4"}
+          inactiveDotColor="#2E86C1"
+          ImageComponentStyle={{ width: "100%" }}
+        />
       </ScrollView>
     </SafeAreaView>
   );
