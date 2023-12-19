@@ -60,6 +60,60 @@ const HomeScreen = () => {
     "https://images.macrumors.com/t/p4OKdf4BqxBekUQvLEJQ9p5J6OE=/800x0/article-new/2023/10/Prime-Big-Deal-Days-Feature-Best-Apple-Discounts.jpg?lossy",
   ];
 
+  const deals = [
+    {
+      id: 0,
+      title: "Apple iPhone 12, 256GB, Blue - Unlocked (Renewed Premium)",
+      typicalPrice: 546.39,
+      price: 460,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/513NI5xpYjL._AC_SL1000_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/I/61QRgOgBx0L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61uaJPLIdML._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/510YZx4v3wL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61J6s1tkwpL._SX679_.jpg",
+      ],
+      color: "Blue",
+      size: "256GB",
+    },
+
+    {
+      id: 1,
+      title: "Apple iPhone 11, 64GB, Black - Unlocked (Renewed)",
+      typicalPrice: 307.95,
+      price: 264.95,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61MG3m5FhIL._AC_SL1500_.jpg",
+      color: "Black",
+      size: "64GB",
+    },
+
+    {
+      id: 2,
+      title:
+        "SAMSUNG Galaxy S20 FE G780F 128GB 8GB RAM Dual Sim GSM Unlocked International Version - Cloud Red",
+      typicalPrice: 499,
+      price: 499,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71NjjYcElTL._AC_SL1500_.jpg",
+      color: "Cloud Red",
+      size: "128GB",
+    },
+
+    {
+      id: 3,
+      title:
+        "Xiaomi Mi 13 Ultra 5G 256GB 12GB Factory Unlocked (GSM Only | No CDMA - not Compatible with Verizon/Sprint) China Version - Green",
+      typicalPrice: 999,
+      price: 999,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7114DYWzqML._AC_SL1500_.jpg",
+      color: "Green",
+      size: "256GB",
+    },
+  ];
+
   return (
     <SafeAreaView
       style={{
@@ -163,6 +217,53 @@ const HomeScreen = () => {
           inactiveDotColor="#2E86C1"
           ImageComponentStyle={{ width: "100%" }}
         />
+
+        <Text
+          style={{
+            padding: 10,
+            fontSize: 18,
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
+        >
+          Trending deals of the week
+        </Text>
+
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {deals.map((item, index) => (
+            <Pressable
+              key={index}
+              style={{
+                marginVertical: 10,
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={{ uri: item?.image }}
+                style={{
+                  width: 180,
+                  height: 180,
+                  resizeMode: "contain",
+                  borderWidth: 2,
+                  borderColor: "#ddd",
+                  margin: 4,
+                  borderRadius: 10,
+                }}
+              />
+              <Text style={{ fontWeight: "bold", fontSize: 12 }}>
+                {" "}
+                {item.price}${" "}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
