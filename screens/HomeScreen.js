@@ -7,12 +7,51 @@ import {
   ScrollView,
   Pressable,
   TextInput,
+  Image,
 } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
+  const list = [
+    {
+      id: 0,
+      image: require("../images/home.png"),
+      name: "Home",
+    },
+
+    {
+      id: 1,
+      image: require("../images/deals.png"),
+      name: "Deals",
+    },
+
+    {
+      id: 2,
+      image: require("../images/electronics.png"),
+      name: "Electronics",
+    },
+
+    {
+      id: 3,
+      image: require("../images/mobiles.png"),
+      name: "Mobiles",
+    },
+
+    {
+      id: 4,
+      image: require("../images/music.png"),
+      name: "Music",
+    },
+
+    {
+      id: 5,
+      image: require("../images/fashion.png"),
+      name: "Fashion",
+    },
+  ];
+
   return (
     <SafeAreaView
       style={{
@@ -73,6 +112,42 @@ const HomeScreen = () => {
 
           <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
         </View>
+
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {list.map((item, index) => (
+            <Pressable
+              key={index}
+              style={{
+                margin: 10,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={item.image}
+                style={{
+                  width: 50,
+                  height: 50,
+                  resizeMode: "contain",
+                  borderWidth: 2,
+                  borderColor: "#ddd",
+                  borderRadius: 25,
+                }}
+              />
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: 12,
+                  fontWeight: 500,
+                  marginTop: 5,
+                }}
+              >
+                {" "}
+                {item?.name}{" "}
+              </Text>
+            </Pressable>
+          ))}
+        </ScrollView>
       </ScrollView>
     </SafeAreaView>
   );
