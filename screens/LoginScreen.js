@@ -8,7 +8,7 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import shoppingBasket from "../images/shopping-basket.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -20,6 +20,22 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
 
   const navigation = useNavigation();
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const token = await AsyncStorage.getItem("authToken");
+
+        if (token) {
+          navigation.replace("Main");
+        }
+      } catch (error) {
+        console.log("Login status error: ", error);
+      }
+    };
+
+    checkLoginStatus();
+  }, []);
 
   const handleEmailChange = (text) => {
     setEmail(text);
