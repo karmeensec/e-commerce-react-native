@@ -114,6 +114,99 @@ const HomeScreen = () => {
     },
   ];
 
+  const offers = [
+    {
+      id: 0,
+      title:
+        "SAMSUNG Galaxy Tab S6 Lite 10.4 64GB Android Tablet, LCD Screen, S Pen Included, Slim Metal Design, AKG Dual Speakers, 8MP Rear Camera, Long Lasting Battery, US Version, 2022, Angora Blue",
+      offer: "43% off",
+      oldPrice: 349.99,
+      price: 199.99,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/415G0bg-hiL._AC_SL1000_.jpg",
+      color: "Angora Blue",
+      size: "64GB",
+    },
+
+    {
+      id: 1,
+      title:
+        "Turtle Beach Stealth 600 Gen 2 MAX Multiplatform Amplified Wireless Gaming Headset for Xbox Series X|S, Xbox One, PS5, PS4, Windows 10 & 11 PCs & Nintendo Switch - 48+ Hour Battery - Black",
+      offer: "17% off",
+      oldPrice: 119.99,
+      price: 99.26,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81mLZHcCV1L._SL1500_.jpg",
+      color: "Black",
+      size: "Normal",
+    },
+
+    {
+      id: 2,
+      title:
+        "ASUS TUF Gaming 27 1080P Monitor - Full HD, 165Hz (Supports 144Hz), 1ms, Extreme Low Motion Blur, FreeSync Premium, Shadow Boost, Eye Care, HDMI, DisplayPort, Tilt Adjustable - VG277Q1A,Black",
+      offer: "25% off",
+      oldPrice: 199.99,
+      price: 149.0,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Gm7yg2npL._AC_SL1500_.jpg",
+      color: "Black",
+      size: "27 inches",
+    },
+
+    {
+      id: 3,
+      title:
+        "TP-Link TL-SG105, 5 Port Gigabit Unmanaged Ethernet Switch, Network Hub, Ethernet Splitter, Plug & Play, Fanless Metal Design, Shielded Ports, Traffic Optimization,Navy Blue",
+      offer: "20% off",
+      oldPrice: 19.99,
+      price: 15.99,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71kcM4nLRjL._AC_SL1500_.jpg",
+      color: "Navy Blue",
+      size: "Normal",
+    },
+
+    {
+      id: 4,
+      title:
+        "ASUS ROG Strix G15 (2022) Gaming Laptop, 15” 16:10 FHD 144Hz, GeForce RTX 3050, AMD Ryzen™ 7 6800H/HS, 16GB DDR5, 512GB PCIe SSD, Wi-Fi 6E, Windows 11, G513RC-ES73, Eclipse Gray",
+      offer: "20% off",
+      oldPrice: 999.99,
+      price: 848.99,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71OyrTkxpGL._AC_SL1500_.jpg",
+      color: "Eclipse Gray",
+      size: "15 inches",
+    },
+
+    {
+      id: 5,
+      title:
+        "Ninja SFP701 Combi All-in-One Multicooker, Oven, and Air Fryer, 14-in-1 Functions,15-Minute Complete Meals, Includes 3 Accessories, Auto Cook Menu, Timer, Automatic Shut-Off, Grey, 14.92 x15.43 x13.11",
+      offer: "20% off",
+      oldPrice: 229.99,
+      price: 149.99,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Rc-+bdezL._AC_SL1500_.jpg",
+      color: "Eclipse Gray",
+      size: "Normal",
+    },
+
+    {
+      id: 6,
+      title:
+        "Amazfit GTR 4 Smart Watch for Men Android iPhone, Dual-Band GPS, Alexa Built-in, Bluetooth Calls, 150+ Sports Modes, 14-Day Battery Life, Heart Rate Blood Oxygen Monitor, 1.43”AMOLED Display,Black",
+      offer: "15% off",
+      oldPrice: 199.99,
+      price: 169.99,
+      image:
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71aWDnZOfLL._AC_SL1500_.jpg",
+      color: "Black",
+      size: "Normal",
+    },
+  ];
+
   return (
     <SafeAreaView
       style={{
@@ -264,6 +357,103 @@ const HomeScreen = () => {
             </Pressable>
           ))}
         </View>
+
+        <Text
+          style={{
+            height: 1,
+            borderColor: "#D5D8DC",
+            borderWidth: 2,
+            marginTop: 15,
+          }}
+        />
+
+        <Text
+          style={{
+            padding: 10,
+            fontSize: 18,
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
+        >
+          Today's Deals
+        </Text>
+
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {offers.map((item, index) => (
+            <Pressable
+              key={index}
+              style={{
+                margin: 10,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                style={{
+                  width: 150,
+                  height: 150,
+                  resizeMode: "contain",
+                }}
+                source={{ uri: item?.image }}
+              />
+              <View
+                style={{
+                  borderColor: "#D5D8DC",
+                  borderBottomWidth: 2,
+                  padding: 5,
+                  borderRadius: 8,
+                }}
+              >
+                <Text
+                  style={{
+                    fontWeight: "semibold",
+                    fontSize: 10,
+                    textDecorationLine: "line-through",
+                  }}
+                >
+                  {" "}
+                  {item.oldPrice}${" "}
+                </Text>
+                <Text style={{ fontWeight: "bold", fontSize: 12 }}>
+                  {" "}
+                  {item.price}${" "}
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  backgroundColor: "#A93226",
+                  paddingVertical: 5,
+                  width: 130,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 10,
+                  borderRadius: 8,
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    color: "#F7F9F9",
+                    fontSize: 13,
+                    fontWeight: "bold",
+                  }}
+                >
+                  {item?.offer}
+                </Text>
+              </View>
+            </Pressable>
+          ))}
+        </ScrollView>
+
+        <Text
+          style={{
+            height: 1,
+            borderColor: "#D5D8DC",
+            borderWidth: 2,
+            marginTop: 15,
+          }}
+        />
       </ScrollView>
     </SafeAreaView>
   );
