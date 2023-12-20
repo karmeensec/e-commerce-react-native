@@ -350,10 +350,19 @@ const HomeScreen = () => {
                   borderRadius: 10,
                 }}
               />
-              <Text style={{ fontWeight: "bold", fontSize: 12 }}>
-                {" "}
-                {item.price}${" "}
-              </Text>
+              <View
+                style={{
+                  borderColor: "#D5D8DC",
+                  borderBottomWidth: 2,
+                  padding: 10,
+                  borderRadius: 8,
+                }}
+              >
+                <Text style={{ fontWeight: "bold", fontSize: 12 }}>
+                  {" "}
+                  {item.price}${" "}
+                </Text>
+              </View>
             </Pressable>
           ))}
         </View>
