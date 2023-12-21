@@ -370,6 +370,10 @@ const HomeScreen = () => {
                   borderRadius: 10,
                 }}
               />
+              <Text style={{ width: 150, marginTop: 10 }} numberOfLines={1}>
+                {" "}
+                {item?.title}{" "}
+              </Text>
               <View
                 style={{
                   borderColor: "#D5D8DC",
@@ -484,7 +488,13 @@ const HomeScreen = () => {
           }}
         />
 
-        <View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
           {products?.map((item, index) => (
             <ProductItem item={item} key={index} />
           ))}
