@@ -16,6 +16,7 @@ import { SliderBox } from "react-native-image-slider-box";
 import axios from "axios";
 import ProductItem from "../components/ProductItem";
 import DropDownPicker from "react-native-dropdown-picker";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
   const list = [
@@ -221,6 +222,8 @@ const HomeScreen = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState("electronics");
 
+  const navigation = useNavigation();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -240,6 +243,19 @@ const HomeScreen = () => {
   const onGenderTypeOpen = useCallback(() => {
     setCompanyOpen(false);
   }, []);
+
+  const handleOffersPress = (item) => {
+    navigation.navigate("Info", {
+      id: item.id,
+      title: item.title,
+      price: item?.price,
+      carouselImages: item.carouselImages,
+      color: item?.color,
+      size: item?.size,
+      oldPrice: item?.oldPrice,
+      item: item,
+    });
+  };
 
   return (
     <SafeAreaView
@@ -434,6 +450,7 @@ const HomeScreen = () => {
                 alignItems: "center",
                 justifyContent: "center",
               }}
+              onPress={() => handleOffersPress(item)}
             >
               <Image
                 style={{
