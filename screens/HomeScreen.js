@@ -9,12 +9,13 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { SliderBox } from "react-native-image-slider-box";
 import axios from "axios";
 import ProductItem from "../components/ProductItem";
+import DropDownPicker from "react-native-dropdown-picker";
 
 const HomeScreen = () => {
   const list = [
@@ -209,7 +210,16 @@ const HomeScreen = () => {
     },
   ];
 
+  const [items, setItems] = useState([
+    { label: "Electronics", value: "electronics" },
+    { label: "Jewelery", value: "jewelery" },
+    { label: "Men's clothing", value: "men's clothing" },
+    { label: "Women's clothing", value: "women's clothing" },
+  ]);
+
   const [products, setProducts] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [category, setCategory] = useState("electronics");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -226,6 +236,10 @@ const HomeScreen = () => {
   }, []);
 
   console.log("All Products: ", products);
+
+  const onGenderTypeOpen = useCallback(() => {
+    setCompanyOpen(false);
+  }, []);
 
   return (
     <SafeAreaView
@@ -490,14 +504,45 @@ const HomeScreen = () => {
 
         <View
           style={{
+            marginHorizontal: 10,
+            marginTop: 20,
+            width: "65%",
+            marginBottom: isOpen ? 15 : 15,
+          }}
+        >
+          <DropDownPicker
+            style={{
+              borderColor: "#273746",
+              height: 20,
+              marginBottom: isOpen ? 15 : 15,
+            }}
+            open={isOpen}
+            value={category}
+            items={items}
+            setOpen={setIsOpen}
+            setValue={setCategory}
+            setItems={setItems}
+            placeholder="Choose a category"
+            placeholderStyle={styles.placeholderStyles}
+            onOpen={onGenderTypeOpen}
+            // onChangeValue={onChange}
+            zIndex={3000}
+            zIndexInverse={1000}
+          />
+        </View>
+
+        <View
+          style={{
             flexDirection: "row",
             alignItems: "center",
             flexWrap: "wrap",
           }}
         >
-          {products?.map((item, index) => (
-            <ProductItem item={item} key={index} />
-          ))}
+          {products
+            ?.filter((item) => item.category === category)
+            .map((item, index) => (
+              <ProductItem item={item} key={index} />
+            ))}
         </View>
       </ScrollView>
     </SafeAreaView>
