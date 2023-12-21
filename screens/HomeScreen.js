@@ -9,10 +9,12 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { SliderBox } from "react-native-image-slider-box";
+import axios from "axios";
+import ProductItem from "../components/ProductItem";
 
 const HomeScreen = () => {
   const list = [
@@ -206,6 +208,24 @@ const HomeScreen = () => {
       size: "Normal",
     },
   ];
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+
+        setProducts(response.data);
+      } catch (error) {
+        console.log("FakeStoreApi Fetch Error: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log("All Products: ", products);
 
   return (
     <SafeAreaView
@@ -463,6 +483,12 @@ const HomeScreen = () => {
             marginTop: 15,
           }}
         />
+
+        <View>
+          {products?.map((item, index) => (
+            <ProductItem item={item} key={index} />
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
