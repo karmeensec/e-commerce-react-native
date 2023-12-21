@@ -241,7 +241,7 @@ const HomeScreen = () => {
   console.log("All Products: ", products);
 
   const onGenderTypeOpen = useCallback(() => {
-    setCompanyOpen(false);
+    setIsOpen(true);
   }, []);
 
   const handleOffersPress = (item) => {
