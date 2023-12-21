@@ -12,11 +12,11 @@ import {
 import React, { useCallback, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-import { SliderBox } from "react-native-image-slider-box";
 import axios from "axios";
 import ProductItem from "../components/ProductItem";
 import DropDownPicker from "react-native-dropdown-picker";
 import { useNavigation } from "@react-navigation/native";
+import { SliderBox } from "react-native-image-slider-box";
 
 const HomeScreen = () => {
   const list = [
