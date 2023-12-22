@@ -18,6 +18,11 @@ export const CartSlice = createSlice({
       }
     },
 
-    removeFromCart: (state, action) => {},
+    removeFromCart: (state, action) => {
+      const removeItem = state.cart.filter(
+        (item) => item.id !== action.payload.id
+      );
+      state.cart = removeItem;
+    },
   },
 });
