@@ -7,8 +7,9 @@ import {
   TextInput,
   ImageBackground,
   Dimensions,
+  Share,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -18,6 +19,23 @@ const ProductInfoScreen = () => {
   const { width } = Dimensions.get("window");
   const navigation = useNavigation();
   const height = (width * 100) / 100;
+
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLikePress = () => {
+    setIsLiked((prev) => !prev);
+  };
+
+  const handleSharePress = async () => {
+    try {
+      await Share.share({
+        message: `Check out this product: ${route?.params?.title}`,
+        url: route?.params?.title,
+      });
+    } catch (error) {
+      console.error("Error sharing image:", error.message);
+    }
+  };
 
   return (
     <ScrollView
@@ -95,7 +113,7 @@ const ProductInfoScreen = () => {
                     fontSize: 15,
                   }}
                 >
-                  20% offe
+                  20% Off
                 </Text>
               </View>
 
@@ -111,7 +129,13 @@ const ProductInfoScreen = () => {
                   elevation: 5,
                 }}
               >
-                <Ionicons name="share-social-outline" size={24} color="white" />
+                <Pressable onPress={handleSharePress}>
+                  <Ionicons
+                    name="share-social-outline"
+                    size={24}
+                    color="white"
+                  />
+                </Pressable>
               </View>
             </View>
 
@@ -130,7 +154,13 @@ const ProductInfoScreen = () => {
                 marginBottom: 20,
               }}
             >
-              <Ionicons name="heart-outline" size={24} color="white" />
+              <Pressable onPress={handleLikePress}>
+                <Ionicons
+                  name={isLiked ? "heart" : "heart-outline"}
+                  size={24}
+                  color="white"
+                />
+              </Pressable>
             </View>
           </ImageBackground>
         ))}
