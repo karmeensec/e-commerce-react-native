@@ -31,5 +31,22 @@ export const CartSlice = createSlice({
       );
       isItemPresent.quantity++;
     },
+
+    decrementQuantity: (state, action) => {
+      const isItemPresent = state.cart.find(
+        (item) => item.id === action.payload.id
+      );
+
+      if (isItemPresent.quantity === 1) {
+        isItemPresent.quantity == 0;
+
+        const removeItem = state.cart.filter(
+          (item) => item.id !== action.payload.id
+        );
+        state.cart = removeItem;
+      } else {
+        isItemPresent.quantity--;
+      }
+    },
   },
 });
