@@ -8,6 +8,8 @@ import {
   ImageBackground,
   Dimensions,
   Share,
+  Animated,
+  Easing,
 } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
@@ -21,6 +23,9 @@ const ProductInfoScreen = () => {
   const height = (width * 100) / 100;
 
   const [isLiked, setIsLiked] = useState(false);
+
+  const [isFlipped, setFlipped] = useState(false);
+  const [flipValue] = useState(new Animated.Value(0));
 
   const handleLikePress = () => {
     setIsLiked((prev) => !prev);
@@ -36,6 +41,21 @@ const ProductInfoScreen = () => {
       console.error("Error sharing image:", error.message);
     }
   };
+
+  const handleFlipPress = () => {
+    Animated.timing(flipValue, {
+      toValue: isFlipped ? 0 : 1,
+      duration: 1000,
+      useNativeDriver: false,
+    }).start(() => {
+      setFlipped(!isFlipped);
+    });
+  };
+
+  const interpolateFlip = flipValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "360deg"],
+  });
 
   return (
     <ScrollView
@@ -93,29 +113,25 @@ const ProductInfoScreen = () => {
                 justifyContent: "space-between",
               }}
             >
-              <View
-                style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: 35,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexDirection: "row",
-                  backgroundColor: "#C0392B",
-                  elevation: 5,
-                }}
-              >
-                <Text
-                  style={{
-                    fontWeight: "600",
-                    textAlign: "center",
-                    color: "#F7F9F9",
-                    fontSize: 15,
-                  }}
+              <Pressable onPress={handleFlipPress}>
+                <Animated.View
+                  style={[
+                    styles.flipContainer,
+                    { transform: [{ rotateY: interpolateFlip }] },
+                  ]}
                 >
-                  20% Off
-                </Text>
-              </View>
+                  <Text
+                    style={{
+                      fontWeight: "600",
+                      textAlign: "center",
+                      color: "#F7F9F9",
+                      fontSize: 12,
+                    }}
+                  >
+                    {isFlipped ? "20%OFF" : "20%OFF"}
+                  </Text>
+                </Animated.View>
+              </Pressable>
 
               <View
                 style={{
@@ -282,4 +298,28 @@ const ProductInfoScreen = () => {
 
 export default ProductInfoScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  flipContainer: {
+    width: 60,
+    height: 60,
+    borderRadius: 35,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#C0392B",
+    elevation: 5,
+    borderWidth: 2,
+    borderColor: "#D5D8DC",
+  },
+  flipItem: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  flipText: {
+    fontWeight: "600",
+    textAlign: "center",
+    color: "#F7F9F9",
+    fontSize: 15,
+  },
+});
