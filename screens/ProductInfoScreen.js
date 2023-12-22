@@ -120,16 +120,11 @@ const ProductInfoScreen = () => {
                     { transform: [{ rotateY: interpolateFlip }] },
                   ]}
                 >
-                  <Text
-                    style={{
-                      fontWeight: "600",
-                      textAlign: "center",
-                      color: "#F7F9F9",
-                      fontSize: 12,
-                    }}
-                  >
-                    {isFlipped ? "20%OFF" : "20%OFF"}
-                  </Text>
+                  <View style={styles.flipItem}>
+                    <Text style={styles.flipText}>
+                      {isFlipped ? "20%OFF" : "20%OFF"}
+                    </Text>
+                  </View>
                 </Animated.View>
               </Pressable>
 
@@ -320,6 +315,6 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
     color: "#F7F9F9",
-    fontSize: 15,
+    fontSize: 12,
   },
 });
