@@ -73,10 +73,9 @@ const HomeScreen = () => {
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/513NI5xpYjL._AC_SL1000_.jpg",
       carouselImages: [
-        "https://m.media-amazon.com/images/I/61QRgOgBx0L._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61uaJPLIdML._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/510YZx4v3wL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61J6s1tkwpL._SX679_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/513NI5xpYjL._AC_SL1000_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51ERFKUcVlL._AC_SL1000_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51yHm-RlBbL._AC_SL1000_.jpg",
       ],
       color: "Blue",
       size: "256GB",
@@ -89,6 +88,11 @@ const HomeScreen = () => {
       price: 264.95,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61MG3m5FhIL._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61MG3m5FhIL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41Uss6iRXiL._AC_SL1333_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51ya2kKb6gL._AC_SL1500_.jpg",
+      ],
       color: "Black",
       size: "64GB",
     },
@@ -101,6 +105,12 @@ const HomeScreen = () => {
       price: 499,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71NjjYcElTL._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71NjjYcElTL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71lseRlo5hL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71CBYSOUnIL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71oPiycuotL._AC_SL1500_.jpg",
+      ],
       color: "Cloud Red",
       size: "128GB",
     },
@@ -113,6 +123,14 @@ const HomeScreen = () => {
       price: 999,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7114DYWzqML._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7114DYWzqML._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61C9J31MFtL._AC_SL1200_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41lv72KUNyL._AC_SL1081_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61bJcViuWGL._AC_SL1079_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71yy-RCDb0L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81KbTb-bVPL._AC_SL1500_.jpg",
+      ],
       color: "Green",
       size: "256GB",
     },
@@ -128,6 +146,13 @@ const HomeScreen = () => {
       price: 199.99,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/415G0bg-hiL._AC_SL1000_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/415G0bg-hiL._AC_SL1000_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51QtzxAUZKL._AC_SL1000_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61cFm5eRcdL._AC_SL1000_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61Hd--NBHwL._AC_SL1000_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61h1KyNKFwL._AC_SL1000_.jpg",
+      ],
       color: "Angora Blue",
       size: "64GB",
     },
@@ -141,6 +166,13 @@ const HomeScreen = () => {
       price: 99.26,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81mLZHcCV1L._SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/712Ve-FtgTL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71h+MzptHJL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61B5wernQSL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71MYdL98ycL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81YmCQUh-WL._SL1500_.jpg",
+      ],
       color: "Black",
       size: "Normal",
     },
@@ -154,6 +186,13 @@ const HomeScreen = () => {
       price: 149.0,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Gm7yg2npL._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Gm7yg2npL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Y6pDMjrwL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81XAo31sQNL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81ZuC8pafbL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/6125fV9U0ZL._AC_SL1500_.jpg",
+      ],
       color: "Black",
       size: "27 inches",
     },
@@ -167,6 +206,9 @@ const HomeScreen = () => {
       price: 15.99,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71kcM4nLRjL._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71kcM4nLRjL._AC_SL1500_.jpg",
+      ],
       color: "Navy Blue",
       size: "Normal",
     },
@@ -180,6 +222,12 @@ const HomeScreen = () => {
       price: 848.99,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71OyrTkxpGL._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71IA+MeLP2L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71gi+JciE8L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71khWP11sUL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51vYBgQ4pyL._AC_SL1500_.jpg",
+      ],
       color: "Eclipse Gray",
       size: "15 inches",
     },
@@ -193,6 +241,13 @@ const HomeScreen = () => {
       price: 149.99,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Rc-+bdezL._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Rc-+bdezL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81sP3NnHmzL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81mTPhsFjHL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/91LkRimPabL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81jc15i4u1L._AC_SL1500_.jpg",
+      ],
       color: "Eclipse Gray",
       size: "Normal",
     },
@@ -206,6 +261,12 @@ const HomeScreen = () => {
       price: 169.99,
       image:
         "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71aWDnZOfLL._AC_SL1500_.jpg",
+      carouselImages: [
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71aWDnZOfLL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7117Em-zhyL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81r4KIFJ1fL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71qi3Lg2hHL._AC_SL1500_.jpg",
+      ],
       color: "Black",
       size: "Normal",
     },
@@ -387,6 +448,7 @@ const HomeScreen = () => {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onPress={() => handleOffersPress(item)}
             >
               <Image
                 source={{ uri: item?.image }}
@@ -414,7 +476,7 @@ const HomeScreen = () => {
               >
                 <Text style={{ fontWeight: "bold", fontSize: 12 }}>
                   {" "}
-                  {item.price}${" "}
+                  ${item.price}{" "}
                 </Text>
               </View>
             </Pressable>
@@ -476,11 +538,11 @@ const HomeScreen = () => {
                   }}
                 >
                   {" "}
-                  {item.oldPrice}${" "}
+                  ${item.oldPrice}{" "}
                 </Text>
                 <Text style={{ fontWeight: "bold", fontSize: 12 }}>
                   {" "}
-                  {item.price}${" "}
+                  ${item.price}{" "}
                 </Text>
               </View>
 
