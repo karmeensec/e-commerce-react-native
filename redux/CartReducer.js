@@ -24,5 +24,12 @@ export const CartSlice = createSlice({
       );
       state.cart = removeItem;
     },
+
+    incrementQuantity: (state, action) => {
+      const isItemPresent = state.cart.find(
+        (item) => item.id === action.payload.id
+      );
+      isItemPresent.quantity++;
+    },
   },
 });
