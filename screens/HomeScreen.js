@@ -17,6 +17,7 @@ import ProductItem from "../components/ProductItem";
 import DropDownPicker from "react-native-dropdown-picker";
 import { useNavigation } from "@react-navigation/native";
 import { SliderBox } from "react-native-image-slider-box";
+import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
   const list = [
@@ -317,6 +318,10 @@ const HomeScreen = () => {
       item: item,
     });
   };
+
+  const cart = useSelector((state) => state.cart.cart);
+
+  console.log("Cart itself: ", cart);
 
   return (
     <SafeAreaView
