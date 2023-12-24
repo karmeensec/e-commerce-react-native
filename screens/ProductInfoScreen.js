@@ -29,7 +29,7 @@ const ProductInfoScreen = () => {
   const [isFlipped, setFlipped] = useState(false);
   const [flipValue] = useState(new Animated.Value(0));
 
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
 
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
@@ -65,7 +65,7 @@ const ProductInfoScreen = () => {
 
   const handleAddToCart = (item) => {
     setIsAddedToCart(true);
-    disptach(addToCart(item));
+    dispatch(addToCart(item));
 
     setTimeout(() => {
       setIsAddedToCart(false);
