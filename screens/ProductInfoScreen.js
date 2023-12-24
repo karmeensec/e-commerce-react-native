@@ -16,6 +16,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/CartReducer";
+import Header from "../components/Header";
 
 const ProductInfoScreen = () => {
   const route = useRoute();
@@ -85,37 +86,7 @@ const ProductInfoScreen = () => {
         marginTop: 55,
       }}
     >
-      <View
-        style={{
-          backgroundColor: "#2980B9",
-          padding: 10,
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
-        <Pressable
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginHorizontal: 7,
-            gap: 10,
-            backgroundColor: "#FBFCFC",
-            borderRadius: 3,
-            height: 38,
-            flex: 1,
-          }}
-        >
-          <Ionicons
-            name="search"
-            size={22}
-            color="black"
-            style={{ paddingLeft: 10 }}
-          />
-          <TextInput placeholder="Search for your products..." />
-        </Pressable>
-
-        <Ionicons name="mic-outline" size={26} color="black" />
-      </View>
+      <Header />
 
       <ScrollView horizontal showsHorizontalScrollIndicator={true}>
         {route.params.carouselImages.map((item, index) => (
