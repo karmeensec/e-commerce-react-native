@@ -18,12 +18,8 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { useNavigation } from "@react-navigation/native";
 import { SliderBox } from "react-native-image-slider-box";
 import { useSelector } from "react-redux";
-import {
-  BottomModal,
-  ModalContent,
-  ModalPortal,
-  SlideAnimation,
-} from "react-native-modals";
+import { BottomModal, ModalContent, SlideAnimation } from "react-native-modals";
+import { Octicons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
   const list = [
@@ -690,6 +686,35 @@ const HomeScreen = () => {
               </Text>
             </Pressable>
           </ScrollView>
+
+          <View style={{ flexDirection: "column", gap: 7, marginBottom: 30 }}>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <Ionicons name="ios-location" size={24} color="#7B7D7D" />
+              <Text style={{ fontWeight: 400, color: "#7B7D7D" }}>
+                Enter your postal code
+              </Text>
+            </View>
+
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <Octicons name="location" size={24} color="#7B7D7D" />
+              <Text style={{ fontWeight: 400, color: "#7B7D7D" }}>
+                Use my current location
+              </Text>
+            </View>
+
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <MaterialIcons name="location-city" size={24} color="#7B7D7D" />
+              <Text style={{ fontWeight: 400, color: "#7B7D7D" }}>
+                Deliver outside of Poland
+              </Text>
+            </View>
+          </View>
         </ModalContent>
       </BottomModal>
     </>
