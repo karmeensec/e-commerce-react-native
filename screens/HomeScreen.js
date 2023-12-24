@@ -331,6 +331,11 @@ const HomeScreen = () => {
     setIsModalVisible((prev) => !prev);
   };
 
+  const handleAddAddressPress = () => {
+    setIsModalVisible(false);
+    navigation.navigate("Address");
+  };
+
   return (
     <>
       <SafeAreaView
@@ -661,8 +666,9 @@ const HomeScreen = () => {
             </Text>
           </View>
 
-          <ScrollView horizontal showsHorizontalScrollIndicator={true}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <Pressable
+              onPress={handleAddAddressPress}
               style={{
                 width: 140,
                 height: 140,
