@@ -2,8 +2,15 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Header from "../components/Header";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const AddressAddScreen = () => {
+  const navigation = useNavigation();
+
+  const handleAddressPress = () => {
+    navigation.navigate("Add");
+  };
+
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 50 }}>
       <Header />
@@ -12,7 +19,7 @@ const AddressAddScreen = () => {
         <Text style={{ fontWeight: "bold", fontSize: 21 }}>Your addresses</Text>
 
         <Pressable
-          onPress={""}
+          onPress={handleAddressPress}
           style={{
             flexDirection: "row",
             alignItems: "center",
