@@ -376,7 +376,8 @@ const HomeScreen = () => {
 
             <Ionicons name="mic-outline" size={26} color="black" />
           </View>
-          <View
+          <Pressable
+            onPress={handleModalVisibility}
             style={{
               flexDirection: "row",
               alignItems: "center",
@@ -387,14 +388,14 @@ const HomeScreen = () => {
           >
             <Ionicons name="location-outline" size={24} color="black" />
 
-            <Pressable>
+            <Pressable onPress={handleModalVisibility}>
               <Text style={{ fontSize: 13, fontWeight: "500" }}>
                 Deliver to Kamil - Patrice Lumumby 16/18
               </Text>
             </Pressable>
 
             <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
-          </View>
+          </Pressable>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {list.map((item, index) => (
               <Pressable
@@ -644,23 +645,21 @@ const HomeScreen = () => {
         </ScrollView>
       </SafeAreaView>
 
-      <ModalPortal>
-        <BottomModal
-          onBackdropPress={handleModalVisibility}
-          swipeDirection={["up", "down"]}
-          swipeThreshold={200}
-          modalAnimation={new SlideAnimation({ slideFrom: "bottom" })}
-          onHardwareBackPress={handleModalVisibility}
-          visible={isModalVisible}
-          onTouchOutside={handleModalVisibility}
-        >
-          <ModalContent style={{ width: "100%", height: 400 }}>
-            <View>
-              <Text>Choose your location</Text>
-            </View>
-          </ModalContent>
-        </BottomModal>
-      </ModalPortal>
+      <BottomModal
+        onBackdropPress={handleModalVisibility}
+        swipeDirection={["up", "down"]}
+        swipeThreshold={200}
+        modalAnimation={new SlideAnimation({ slideFrom: "bottom" })}
+        onHardwareBackPress={handleModalVisibility}
+        visible={isModalVisible}
+        onTouchOutside={handleModalVisibility}
+      >
+        <ModalContent style={{ width: "100%", height: 400 }}>
+          <View>
+            <Text>Choose your location</Text>
+          </View>
+        </ModalContent>
+      </BottomModal>
     </>
   );
 };
