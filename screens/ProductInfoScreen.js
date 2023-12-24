@@ -31,6 +31,8 @@ const ProductInfoScreen = () => {
 
   const disptach = useDispatch();
 
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
   const handleLikePress = () => {
     setIsLiked((prev) => !prev);
   };
@@ -62,7 +64,12 @@ const ProductInfoScreen = () => {
   });
 
   const handleAddToCart = (item) => {
+    setIsAddedToCart(true);
     disptach(addToCart(item));
+
+    setTimeout(() => {
+      setIsAddedToCart(false);
+    }, 60000);
   };
 
   const cart = useSelector((state) => state.cart.cart);
@@ -281,7 +288,13 @@ const ProductInfoScreen = () => {
           elevation: 10,
         }}
       >
-        <Text style={{ fontSize: 15, fontWeight: "bold" }}>Add to Cart</Text>
+        {isAddedToCart ? (
+          <View>
+            <Text style={{ fontSize: 15, fontWeight: "bold" }}>View Cart</Text>
+          </View>
+        ) : (
+          <Text style={{ fontSize: 15, fontWeight: "bold" }}>Add to Cart</Text>
+        )}
       </Pressable>
 
       <Pressable
