@@ -14,6 +14,8 @@ import {
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/CartReducer";
 
 const ProductInfoScreen = () => {
   const route = useRoute();
@@ -26,6 +28,8 @@ const ProductInfoScreen = () => {
 
   const [isFlipped, setFlipped] = useState(false);
   const [flipValue] = useState(new Animated.Value(0));
+
+  const disptach = useDispatch();
 
   const handleLikePress = () => {
     setIsLiked((prev) => !prev);
@@ -56,6 +60,14 @@ const ProductInfoScreen = () => {
     inputRange: [0, 1],
     outputRange: ["0deg", "360deg"],
   });
+
+  const handleAddToCart = (item) => {
+    disptach(addToCart(item));
+  };
+
+  const cart = useSelector((state) => state.cart.cart);
+
+  console.log("Cart itself: ", cart);
 
   return (
     <ScrollView
@@ -255,6 +267,7 @@ const ProductInfoScreen = () => {
       </Text>
 
       <Pressable
+        onPress={() => handleAddToCart(route?.params?.item)}
         style={{
           padding: 10,
           justifyContent: "center",
