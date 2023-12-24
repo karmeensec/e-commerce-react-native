@@ -655,9 +655,41 @@ const HomeScreen = () => {
         onTouchOutside={handleModalVisibility}
       >
         <ModalContent style={{ width: "100%", height: 400 }}>
-          <View>
-            <Text>Choose your location</Text>
+          <View style={{ marginBottom: 8 }}>
+            <Text style={{ fontSize: 18, fontWeight: "500" }}>
+              Choose your location
+            </Text>
+
+            <Text style={{ marginTop: 5, fontSize: 14, color: "#909497" }}>
+              Select your delivery location
+            </Text>
           </View>
+
+          <ScrollView horizontal showsHorizontalScrollIndicator={true}>
+            <Pressable
+              style={{
+                width: 140,
+                height: 140,
+                borderWidth: 1,
+                borderColor: "#A6ACAF",
+                borderRadius: 10,
+                marginTop: 10,
+                paddingTop: 10,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontWeight: "600",
+                  color: "#7B7D7D",
+                }}
+              >
+                Add your address or choose a pick-up point
+              </Text>
+            </Pressable>
+          </ScrollView>
         </ModalContent>
       </BottomModal>
     </>
