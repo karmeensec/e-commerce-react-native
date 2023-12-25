@@ -164,3 +164,33 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ message: "Login failed" });
   }
 });
+
+// Adding a new address endpoint
+
+app.post("/address", async (req, res) => {
+  try {
+    const { userId, address } = req.body;
+
+    // Find a user by the id
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Add the user to the user address array
+
+    user.address.push(address);
+
+    // Save the updated user to the backend
+
+    await user.save();
+
+    res.status(200).json({ message: "Address created succesfully!" });
+  } catch (error) {
+    console.log("New address endpoint error: ", error);
+
+    res.status(500).json({ message: "Error adding a new address" });
+  }
+});
