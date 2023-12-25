@@ -6,9 +6,40 @@ import {
   TextInput,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const AddressScreen = () => {
+  const [name, setName] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [houseNumber, setHouseNumber] = useState("");
+  const [street, setStreet] = useState("");
+  const [landmark, setLandmark] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+
+  const handleNameChange = (text) => {
+    setName(text);
+  };
+
+  const handleMobileNumberChange = (text) => {
+    setMobileNumber(text);
+  };
+
+  const handleHouseNumberChange = (text) => {
+    setHouseNumber(text);
+  };
+
+  const handleStreetChange = (text) => {
+    setStreet(text);
+  };
+
+  const handleLandmarkChange = (text) => {
+    setLandmark(text);
+  };
+
+  const handlePostalCodeChange = (text) => {
+    setPostalCode(text);
+  };
+
   return (
     <ScrollView style={{ marginTop: 50 }}>
       <View style={{ height: 50, backgroundColor: "#3498DB" }} />
@@ -32,10 +63,12 @@ const AddressScreen = () => {
 
         <View style={{ marginVertical: 10 }}>
           <Text style={{ fontSize: 15, fontWeight: "bold" }}>
-            First and last name
+            `` First and last name
           </Text>
 
           <TextInput
+            value={name}
+            onChangeText={handleNameChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="John Doe"
             style={{
@@ -54,6 +87,8 @@ const AddressScreen = () => {
           </Text>
 
           <TextInput
+            value={houseNumber}
+            onChangeText={handleHouseNumberChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="+1234567890"
             style={{
@@ -72,6 +107,8 @@ const AddressScreen = () => {
           </Text>
 
           <TextInput
+            value={mobileNumber}
+            onChangeText={handleMobileNumberChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="Bill & Aileen M. , 1 , FL32750"
             style={{
@@ -90,6 +127,8 @@ const AddressScreen = () => {
           </Text>
 
           <TextInput
+            value={street}
+            onChangeText={handleStreetChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="JD, Anytown, 123 Label st."
             style={{
@@ -106,6 +145,8 @@ const AddressScreen = () => {
           <Text style={{ fontSize: 15, fontWeight: "bold" }}>Landmark</Text>
 
           <TextInput
+            value={landmark}
+            onChangeText={handleLandmarkChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="Jane Doe hospital"
             style={{
@@ -122,6 +163,8 @@ const AddressScreen = () => {
           <Text style={{ fontSize: 15, fontWeight: "bold" }}>Postal Code</Text>
 
           <TextInput
+            value={postalCode}
+            onChangeText={handlePostalCodeChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="12-345"
             style={{
