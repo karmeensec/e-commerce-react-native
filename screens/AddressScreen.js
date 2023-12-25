@@ -1,4 +1,11 @@
-import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React from "react";
 
 const AddressScreen = () => {
@@ -126,6 +133,21 @@ const AddressScreen = () => {
             }}
           />
         </View>
+
+        <Pressable
+          style={{
+            padding: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 10,
+            marginHorizontal: 10,
+            backgroundColor: "#F1C40F",
+            borderRadius: 10,
+            borderWidth: 1,
+          }}
+        >
+          <Text style={{ fontWeight: "bold" }}>Add Address</Text>
+        </Pressable>
       </View>
     </ScrollView>
   );
