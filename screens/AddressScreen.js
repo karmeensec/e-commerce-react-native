@@ -1,4 +1,5 @@
 import {
+  Alert,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -6,7 +7,12 @@ import {
   TextInput,
   View,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { UserType } from "../UserContext";
+import { decode } from "base-64";
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 const AddressScreen = () => {
   const [name, setName] = useState("");
@@ -15,6 +21,25 @@ const AddressScreen = () => {
   const [street, setStreet] = useState("");
   const [landmark, setLandmark] = useState("");
   const [postalCode, setPostalCode] = useState("");
+
+  const { userId, setUserId } = useContext(UserType);
+
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const token = await AsyncStorage.getItem("authToken");
+      const parts = token.split(".");
+      const payload = JSON.parse(decode(parts[1]));
+
+      const userId = payload.userId;
+      setUserId(userId);
+    };
+
+    fetchUser();
+  }, []);
+
+  console.log("User Id: ", userId);
 
   const handleNameChange = (text) => {
     setName(text);
@@ -38,6 +63,47 @@ const AddressScreen = () => {
 
   const handlePostalCodeChange = (text) => {
     setPostalCode(text);
+  };
+
+  const handleAddNewAddress = () => {
+    const address = {
+      name,
+      mobileNumber,
+      houseNumber,
+      street,
+      landmark,
+      postalCode,
+    };
+
+    axios
+      .post(
+        "http://10.0.2.2:8000/address",
+        { userId, address },
+        {
+          headers: {
+            Accept: "application/json",
+            "content-type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        Alert.alert("New Address Success", "Addresses added successfully");
+        setName("");
+        setMobileNumber("");
+        setHouseNumber("");
+        setStreet("");
+        setLandmark("");
+        setPostalCode("");
+
+        setTimeout(() => {
+          navigation.goBack();
+        }, 600);
+      })
+      .catch((error) => {
+        Alert.alert("Error", "Failed to add address!");
+        console.log("Add Address post request error: ", error);
+        console.error("Add Address post request error: ", error.message);
+      });
   };
 
   return (
@@ -178,6 +244,7 @@ const AddressScreen = () => {
         </View>
 
         <Pressable
+          onPress={handleAddNewAddress}
           style={{
             padding: 10,
             justifyContent: "center",
