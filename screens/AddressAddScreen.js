@@ -109,6 +109,62 @@ const AddressAddScreen = () => {
               <Text style={{ fontSize: 12, color: "#2C3E50" }}>
                 {item?.postalCode}
               </Text>
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 10,
+                  justifyContent: "space-between",
+                }}
+              >
+                <Pressable
+                  style={{
+                    marginTop: 10,
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    backgroundColor: "transparent",
+                    borderTopWidth: 1,
+                    borderLeftWidth: 1,
+                    borderRadius: 5,
+                  }}
+                >
+                  <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                    Edit
+                  </Text>
+                </Pressable>
+
+                <Pressable
+                  style={{
+                    marginTop: 10,
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    backgroundColor: "transparent",
+                    borderWidth: 1,
+                    borderRadius: 5,
+                  }}
+                >
+                  <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                    Set as default
+                  </Text>
+                </Pressable>
+
+                <Pressable
+                  style={{
+                    marginTop: 10,
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    backgroundColor: "transparent",
+                    borderBottomWidth: 1,
+                    borderRightWidth: 1,
+                    borderRadius: 5,
+                  }}
+                >
+                  <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                    Remove
+                  </Text>
+                </Pressable>
+              </View>
             </Pressable>
           ))}
         </Pressable>
