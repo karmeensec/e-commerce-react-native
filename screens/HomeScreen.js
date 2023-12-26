@@ -293,9 +293,30 @@ const HomeScreen = () => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const [specAddresses, setSpecAddresses] = useState([]);
+  const [addresses, setAddresses] = useState([]);
 
   const { userId, setUserId } = useContext(UserType);
+
+  const fetchAddresses = async () => {
+    try {
+      const response = await axios.get(
+        `http://10.0.2.2:8000/address/${userId}`
+      );
+
+      const { addresses } = response.data;
+
+      setAddresses(addresses);
+    } catch (error) {
+      console.log("fetchAddresses function error: ", error);
+      console.log("Error details:", error.response?.data);
+    }
+  };
+
+  useEffect(() => {
+    if (userId) {
+      fetchAddresses();
+    }
+  }, [userId, isModalVisible]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -355,6 +376,8 @@ const HomeScreen = () => {
     setIsModalVisible(false);
     navigation.navigate("Address");
   };
+
+  console.log("All addresses Home: ", addresses);
 
   return (
     <>
