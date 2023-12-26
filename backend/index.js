@@ -197,7 +197,7 @@ app.post("/address", async (req, res) => {
 
 // Get all the addresses of the specified user
 
-app.get("/address:userId", async (req, res) => {
+app.get("/address/:userId", async (req, res) => {
   try {
     const userId = req.params.userId;
     const user = await User.findById(userId);
