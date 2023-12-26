@@ -153,8 +153,8 @@ const AddressScreen = () => {
           </Text>
 
           <TextInput
-            value={houseNumber}
-            onChangeText={handleHouseNumberChange}
+            value={mobileNumber}
+            onChangeText={handleMobileNumberChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="+1234567890"
             style={{
@@ -173,8 +173,8 @@ const AddressScreen = () => {
           </Text>
 
           <TextInput
-            value={mobileNumber}
-            onChangeText={handleMobileNumberChange}
+            value={houseNumber}
+            onChangeText={handleHouseNumberChange}
             placeholderTextColor={"#A6ACAF"}
             placeholder="Bill & Aileen M. , 1 , FL32750"
             style={{
