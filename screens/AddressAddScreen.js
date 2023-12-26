@@ -5,6 +5,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { UserType } from "../UserContext";
+import { Ionicons } from "@expo/vector-icons";
 
 const AddressAddScreen = () => {
   const navigation = useNavigation();
@@ -59,10 +60,57 @@ const AddressAddScreen = () => {
             paddingHorizontal: 5,
             paddingVertical: 7,
             borderColor: "#7B7D7D",
+            marginVertical: 10,
           }}
         >
           <Text>Add a new address</Text>
           <FontAwesome5 name="plus-square" size={24} color="black" />
+        </Pressable>
+
+        <Pressable>
+          {addresses?.map((item, index) => (
+            <Pressable
+              key={index}
+              style={{
+                borderWidth: 1,
+                marginVertical: 10,
+                padding: 10,
+                flexDirection: "column",
+                gap: 5,
+                borderColor: "#7B7D7D",
+                borderRadius: 5,
+              }}
+            >
+              <View
+                style={{ flexDirection: "row", alignItems: "center", gap: 3 }}
+              >
+                <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+                  {item?.name}
+                </Text>
+                <Ionicons name="ios-location" size={24} color="#CB4335" />
+              </View>
+
+              <Text style={{ fontSize: 14, color: "#2C3E50" }}>
+                {item?.houseNumber}, {item?.landmark}
+              </Text>
+
+              <Text style={{ fontSize: 13, color: "#2C3E50" }}>
+                {item?.street}
+              </Text>
+
+              <Text style={{ fontSize: 12, color: "#2C3E50" }}>
+                Poland, Lodz
+              </Text>
+
+              <Text style={{ fontSize: 12, color: "#2C3E50" }}>
+                {item?.mobileNumber}
+              </Text>
+
+              <Text style={{ fontSize: 12, color: "#2C3E50" }}>
+                {item?.postalCode}
+              </Text>
+            </Pressable>
+          ))}
         </Pressable>
       </View>
     </ScrollView>
