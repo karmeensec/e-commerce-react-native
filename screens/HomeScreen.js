@@ -9,7 +9,7 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import axios from "axios";
@@ -21,6 +21,9 @@ import { useSelector } from "react-redux";
 import { BottomModal, ModalContent, SlideAnimation } from "react-native-modals";
 import { Octicons } from "@expo/vector-icons";
 import Header from "../components/Header";
+import { UserType } from "../UserContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { decode } from "base-64";
 
 const HomeScreen = () => {
   const list = [
@@ -275,6 +278,7 @@ const HomeScreen = () => {
       size: "Normal",
     },
   ];
+  const navigation = useNavigation();
 
   const [items, setItems] = useState([
     { label: "Electronics", value: "electronics" },
@@ -287,9 +291,24 @@ const HomeScreen = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState("electronics");
 
-  const navigation = useNavigation();
-
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const [specAddresses, setSpecAddresses] = useState([]);
+
+  const { userId, setUserId } = useContext(UserType);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const token = await AsyncStorage.getItem("authToken");
+      const parts = token.split(".");
+      const payload = JSON.parse(decode(parts[1]));
+
+      const userId = payload.userId;
+      setUserId(userId);
+    };
+
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
