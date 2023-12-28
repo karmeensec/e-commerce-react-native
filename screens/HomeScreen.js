@@ -703,14 +703,13 @@ const HomeScreen = () => {
                   width: 140,
                   height: 140,
                   borderColor: "#A6ACAF",
-                  borderWidth: 1,
                   alignItems: "center",
                   justifyContent: "center",
                   marginRight: 15,
                   marginTop: 10,
                   gap: 3,
                   borderRadius: 10,
-                  backgroundColor: selectedAddress === item ? "#48C9B0" : "",
+                  borderWidth: selectedAddress === item ? 6 : 1,
                 }}
               >
                 <View
