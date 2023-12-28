@@ -129,7 +129,7 @@ const AddressScreen = () => {
 
         <View style={{ marginVertical: 10 }}>
           <Text style={{ fontSize: 15, fontWeight: "bold" }}>
-            `` First and last name
+            First and last name
           </Text>
 
           <TextInput
