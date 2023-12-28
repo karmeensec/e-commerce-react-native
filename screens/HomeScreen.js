@@ -297,6 +297,8 @@ const HomeScreen = () => {
 
   const { userId, setUserId } = useContext(UserType);
 
+  const [selectedAddress, setSelectedAddress] = useState("");
+
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
@@ -379,6 +381,12 @@ const HomeScreen = () => {
 
   console.log("All addresses Home: ", addresses);
 
+  const handleSetAddressPress = (item) => {
+    setSelectedAddress(item);
+  };
+
+  console.log("Select address: ", selectedAddress);
+
   return (
     <>
       <SafeAreaView
@@ -404,9 +412,15 @@ const HomeScreen = () => {
             <Ionicons name="location-outline" size={24} color="black" />
 
             <Pressable onPress={handleModalVisibility}>
-              <Text style={{ fontSize: 13, fontWeight: "500" }}>
-                Deliver to Kamil - Patrice Lumumby 16/18
-              </Text>
+              {selectedAddress ? (
+                <Text style={{ fontSize: 13, fontWeight: "500" }}>
+                  Deliver to {selectedAddress?.name} - {selectedAddress?.street}
+                </Text>
+              ) : (
+                <Text style={{ fontSize: 13, fontWeight: "500" }}>
+                  Add your address or choose a pick-up point
+                </Text>
+              )}
             </Pressable>
 
             <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
@@ -683,6 +697,7 @@ const HomeScreen = () => {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {addresses?.map((item, index) => (
               <Pressable
+                onPress={() => handleSetAddressPress(item)}
                 key={index}
                 style={{
                   width: 140,
@@ -695,6 +710,7 @@ const HomeScreen = () => {
                   marginTop: 10,
                   gap: 3,
                   borderRadius: 10,
+                  backgroundColor: selectedAddress === item ? "#48C9B0" : "",
                 }}
               >
                 <View
