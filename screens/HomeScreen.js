@@ -681,6 +681,69 @@ const HomeScreen = () => {
           </View>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {addresses?.map((item, index) => (
+              <Pressable
+                key={index}
+                style={{
+                  width: 140,
+                  height: 140,
+                  borderColor: "#A6ACAF",
+                  borderWidth: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: 15,
+                  marginTop: 10,
+                  gap: 3,
+                  borderRadius: 10,
+                }}
+              >
+                <View
+                  style={{ flexDirection: "row", alignItems: "center", gap: 3 }}
+                >
+                  <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+                    {item?.name}
+                  </Text>
+                  <Ionicons name="ios-location" size={24} color="#CB4335" />
+                </View>
+
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    fontSize: 14,
+                    color: "#2C3E50",
+                    textAlign: "center",
+                    width: 130,
+                  }}
+                >
+                  {item?.houseNumber}, {item?.landmark}
+                </Text>
+
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    fontSize: 13,
+                    color: "#2C3E50",
+                    textAlign: "center",
+                    width: 130,
+                  }}
+                >
+                  {item?.street}
+                </Text>
+
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    fontSize: 12,
+                    color: "#2C3E50",
+                    textAlign: "center",
+                    width: 130,
+                  }}
+                >
+                  Poland, Lodz
+                </Text>
+              </Pressable>
+            ))}
+
             <Pressable
               onPress={handleAddAddressPress}
               style={{
