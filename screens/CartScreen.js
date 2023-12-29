@@ -17,10 +17,12 @@ import {
   incrementQuantity,
   removeFromCart,
 } from "../redux/CartReducer";
+import { useNavigation } from "@react-navigation/native";
 
 const CartScreen = () => {
   const ecomImageUrl =
     "https://cdn0.iconfinder.com/data/icons/e-commerce-two-color-blue/2048/41_-_eCommerce_-_Two_Color_Blue_A3_B3_1-7-512.png";
+  const navigation = useNavigation();
   const cart = useSelector((state) => state.cart.cart);
 
   console.log("Cart screen cart: ", cart);
@@ -45,6 +47,10 @@ const CartScreen = () => {
     dispatch(removeFromCart(item));
   };
 
+  const handleProceedtoBuyPress = () => {
+    navigation.navigate("Confirm");
+  };
+
   return (
     <ScrollView style={{ marginTop: 40, flex: 1 }}>
       <Header />
@@ -59,6 +65,7 @@ const CartScreen = () => {
       </Text>
 
       <Pressable
+        onPress={handleProceedtoBuyPress}
         style={{
           padding: 10,
           justifyContent: "center",
