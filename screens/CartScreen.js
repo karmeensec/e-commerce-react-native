@@ -12,7 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { decrementQuantity, incrementQuantity } from "../redux/CartReducer";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeFromCart,
+} from "../redux/CartReducer";
 
 const CartScreen = () => {
   const ecomImageUrl =
@@ -35,6 +39,10 @@ const CartScreen = () => {
 
   const handleDecreaseQuantity = (item) => {
     dispatch(decrementQuantity(item));
+  };
+
+  const handleDeleteItem = (item) => {
+    dispatch(removeFromCart(item));
   };
 
   return (
@@ -180,6 +188,7 @@ const CartScreen = () => {
                   </Pressable>
                 ) : (
                   <Pressable
+                    onPress={() => handleDeleteItem(item)}
                     style={{
                       padding: 7,
                       borderLeftWidth: 1,
@@ -213,6 +222,7 @@ const CartScreen = () => {
               </View>
 
               <Pressable
+                onPress={() => handleDeleteItem(item)}
                 style={{
                   paddingHorizontal: 8,
                   paddingVertical: 10,
