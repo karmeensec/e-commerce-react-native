@@ -1,5 +1,7 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { UserType } from "../UserContext";
 
 const ConfirmScreen = () => {
   const steps = [
@@ -9,7 +11,30 @@ const ConfirmScreen = () => {
     { title: "Place Order", content: "Order Summary" },
   ];
 
+  const { userId, setUserId } = useContext(UserType);
+
   const [currentStep, setCurrentStep] = useState(0);
+  const [addresses, setAddresses] = useState([]);
+
+  useEffect(() => {
+    fetchAddresses();
+  }, []);
+
+  const fetchAddresses = async () => {
+    try {
+      const response = await axios.get(
+        `http://10.0.2.2:8000/address/${userId}`
+      );
+
+      const { addresses } = response.data;
+
+      setAddresses(addresses);
+    } catch (error) {
+      console.log("fetchAddresses function error: ", error);
+    }
+  };
+
+  console.log("All addresses Confirm screen: ", addresses);
 
   return (
     <ScrollView style={{ marginTop: 45 }}>
@@ -71,6 +96,14 @@ const ConfirmScreen = () => {
           ))}
         </View>
       </View>
+
+      {currentStep == 0 && (
+        <View style={{ marginHorizontal: 20 }}>
+          <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+            Select your delivery address
+          </Text>
+        </View>
+      )}
     </ScrollView>
   );
 };
