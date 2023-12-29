@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { incrementQuantity } from "../redux/CartReducer";
+import { decrementQuantity, incrementQuantity } from "../redux/CartReducer";
 
 const CartScreen = () => {
   const ecomImageUrl =
@@ -31,6 +31,10 @@ const CartScreen = () => {
 
   const handleIncreaseQuantity = (item) => {
     dispatch(incrementQuantity(item));
+  };
+
+  const handleDecreaseQuantity = (item) => {
+    dispatch(decrementQuantity(item));
   };
 
   return (
@@ -161,17 +165,32 @@ const CartScreen = () => {
                   borderRadius: 7,
                 }}
               >
-                <Pressable
-                  style={{
-                    padding: 7,
-                    borderLeftWidth: 1,
-                    borderBottomWidth: 1,
-                    borderRadius: 7,
-                    backgroundColor: "#EAECEE",
-                  }}
-                >
-                  <AntDesign name="delete" size={24} color="black" />
-                </Pressable>
+                {item?.quantity > 1 ? (
+                  <Pressable
+                    onPress={() => handleDecreaseQuantity(item)}
+                    style={{
+                      padding: 7,
+                      borderLeftWidth: 1,
+                      borderBottomWidth: 1,
+                      borderRadius: 7,
+                      backgroundColor: "#EAECEE",
+                    }}
+                  >
+                    <Entypo name="minus" size={24} color="black" />
+                  </Pressable>
+                ) : (
+                  <Pressable
+                    style={{
+                      padding: 7,
+                      borderLeftWidth: 1,
+                      borderBottomWidth: 1,
+                      borderRadius: 7,
+                      backgroundColor: "#EAECEE",
+                    }}
+                  >
+                    <AntDesign name="delete" size={24} color="black" />
+                  </Pressable>
+                )}
 
                 <Pressable
                   style={{ paddingHorizontal: 18, paddingVertical: 6 }}
