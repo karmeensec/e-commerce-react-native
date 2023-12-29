@@ -1,7 +1,9 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserType } from "../UserContext";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 const ConfirmScreen = () => {
   const steps = [
@@ -102,6 +104,116 @@ const ConfirmScreen = () => {
           <Text style={{ fontSize: 16, fontWeight: "bold" }}>
             Select your delivery address
           </Text>
+
+          <Pressable>
+            {addresses?.map((item, index) => (
+              <Pressable
+                style={{
+                  borderWidth: 1,
+                  marginVertical: 10,
+                  padding: 17,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 5,
+                  borderColor: "#7B7D7D",
+                  borderRadius: 5,
+                }}
+              >
+                <FontAwesome5 name="circle" size={24} color="black" />
+
+                <View style={{ marginHorizontal: 6 }}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: 3,
+                    }}
+                  >
+                    <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+                      {item?.name}
+                    </Text>
+                    <Ionicons name="ios-location" size={24} color="#CB4335" />
+                  </View>
+
+                  <Text style={{ fontSize: 14, color: "#2C3E50" }}>
+                    {item?.houseNumber}, {item?.landmark}
+                  </Text>
+
+                  <Text style={{ fontSize: 13, color: "#2C3E50" }}>
+                    {item?.street}
+                  </Text>
+
+                  <Text style={{ fontSize: 12, color: "#2C3E50" }}>
+                    Poland, Lodz
+                  </Text>
+
+                  <Text style={{ fontSize: 12, color: "#2C3E50" }}>
+                    {item?.mobileNumber}
+                  </Text>
+
+                  <Text style={{ fontSize: 12, color: "#2C3E50" }}>
+                    {item?.postalCode}
+                  </Text>
+
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: 10,
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Pressable
+                      style={{
+                        marginTop: 10,
+                        paddingHorizontal: 10,
+                        paddingVertical: 6,
+                        backgroundColor: "transparent",
+                        borderTopWidth: 1,
+                        borderLeftWidth: 1,
+                        borderRadius: 5,
+                      }}
+                    >
+                      <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                        Edit
+                      </Text>
+                    </Pressable>
+
+                    <Pressable
+                      style={{
+                        marginTop: 10,
+                        paddingHorizontal: 10,
+                        paddingVertical: 6,
+                        backgroundColor: "transparent",
+                        borderWidth: 1,
+                        borderRadius: 5,
+                      }}
+                    >
+                      <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                        Set as default
+                      </Text>
+                    </Pressable>
+
+                    <Pressable
+                      style={{
+                        marginTop: 10,
+                        paddingHorizontal: 10,
+                        paddingVertical: 6,
+                        backgroundColor: "transparent",
+                        borderBottomWidth: 1,
+                        borderRightWidth: 1,
+                        borderRadius: 5,
+                      }}
+                    >
+                      <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                        Remove
+                      </Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </Pressable>
+            ))}
+          </Pressable>
         </View>
       )}
     </ScrollView>
