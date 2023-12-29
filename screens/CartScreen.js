@@ -8,10 +8,11 @@ import {
 } from "react-native";
 import React from "react";
 import Header from "../components/Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import { incrementQuantity } from "../redux/CartReducer";
 
 const CartScreen = () => {
   const ecomImageUrl =
@@ -25,6 +26,12 @@ const CartScreen = () => {
     .reduce((acc, item) => acc + item, 0);
 
   console.log("Total: ", total);
+
+  const dispatch = useDispatch();
+
+  const handleIncreaseQuantity = (item) => {
+    dispatch(incrementQuantity(item));
+  };
 
   return (
     <ScrollView style={{ marginTop: 40, flex: 1 }}>
@@ -173,6 +180,7 @@ const CartScreen = () => {
                 </Pressable>
 
                 <Pressable
+                  onPress={() => handleIncreaseQuantity(item)}
                   style={{
                     padding: 7,
                     borderRightWidth: 1,
