@@ -1,8 +1,8 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { UserType } from "../UserContext";
 import { Ionicons } from "@expo/vector-icons";
@@ -39,6 +39,12 @@ const AddressAddScreen = () => {
   const handleAddressPress = () => {
     navigation.navigate("Add");
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchAddresses();
+    }, [])
+  );
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 50 }}>
