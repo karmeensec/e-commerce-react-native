@@ -65,19 +65,27 @@ const CartScreen = () => {
       </Text>
 
       <Pressable
+        disabled={cart.length === 0}
         onPress={handleProceedtoBuyPress}
-        style={{
-          padding: 10,
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: 10,
-          marginHorizontal: 10,
-          marginVertical: 10,
-          backgroundColor: "#F1C40F",
-          borderRadius: 20,
-          borderWidth: 1,
-          elevation: 10,
-        }}
+        style={({ pressed }) => [
+          {
+            padding: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 10,
+            marginHorizontal: 10,
+            marginVertical: 10,
+            borderRadius: 20,
+            borderWidth: 1,
+            elevation: 10,
+            backgroundColor: pressed
+              ? "#D4AC0D"
+              : cart.length === 0
+              ? "#D3D3D3"
+              : "#F1C40F",
+          },
+          cart.length === 0 && { borderColor: "#A9A9A9" }, // Change border color when disabled
+        ]}
       >
         <Text style={{ fontSize: 15, fontWeight: "bold" }}>
           {" "}
