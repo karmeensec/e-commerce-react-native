@@ -4,6 +4,7 @@ import axios from "axios";
 import { UserType } from "../UserContext";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
 
 const ConfirmScreen = () => {
   const steps = [
@@ -21,6 +22,12 @@ const ConfirmScreen = () => {
   const [selectedAddress, setSelectedAddress] = useState("");
   const [isOption, setIsOption] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+
+  const cart = useSelector((state) => state.cart.cart);
+
+  const total = cart
+    ?.map((item) => item.price * item.quantity)
+    .reduce((acc, item) => acc + item, 0);
 
   useEffect(() => {
     fetchAddresses();
@@ -408,6 +415,131 @@ const ConfirmScreen = () => {
           >
             <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}>
               Continue
+            </Text>
+          </Pressable>
+        </View>
+      )}
+
+      {currentStep == 3 && selectedOption == "cash" && (
+        <View style={{ marginHorizontal: 20 }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>Order Now</Text>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 8,
+              padding: 8,
+              borderWidth: 1,
+              marginVertical: 10,
+              borderRadius: 10,
+            }}
+          >
+            <View>
+              <Text style={{ fontSize: 17, fontWeight: "bold" }}>
+                Secure a 10% savings and ensure a continuous supply
+              </Text>
+
+              <Text style={{ fontSize: 15, color: "#808B96", marginTop: 5 }}>
+                Turn on auto deliveries
+              </Text>
+            </View>
+
+            <FontAwesome5 name="angle-right" size={24} color="black" />
+          </View>
+
+          <View
+            style={{
+              gap: 8,
+              padding: 8,
+              borderWidth: 1,
+              marginVertical: 10,
+              borderRadius: 10,
+            }}
+          >
+            <Text>Shipping to {selectedAddress?.name}</Text>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text
+                style={{ fontSize: 17, fontWeight: "bold", color: "#808B96" }}
+              >
+                Items:{" "}
+              </Text>
+              <Text style={{ fontSize: 17, color: "#808B96" }}>${total}</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text
+                style={{ fontSize: 17, fontWeight: "bold", color: "#808B96" }}
+              >
+                Delivery:{" "}
+              </Text>
+              <Text style={{ fontSize: 17, color: "#808B96" }}>$0</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text
+                style={{ fontSize: 23, fontWeight: "bold", color: "#808B96" }}
+              >
+                Total order price:{" "}
+              </Text>
+              <Text
+                style={{ fontSize: 23, fontWeight: "bold", color: "#2C3E50" }}
+              >
+                ${total}
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              gap: 8,
+              padding: 8,
+              borderWidth: 1,
+              marginVertical: 10,
+              borderRadius: 10,
+            }}
+          >
+            <Text style={{ fontSize: 15, color: "#808B96" }}>Pay with</Text>
+            <Text style={{ fontSize: 15, fontWeight: "600" }}>
+              Pay on delivery
+            </Text>
+          </View>
+
+          <Pressable
+            style={{
+              padding: 10,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 10,
+              marginHorizontal: 10,
+              backgroundColor: "#17202A",
+              borderRadius: 10,
+              borderWidth: 1,
+              elevation: 5,
+            }}
+          >
+            <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}>
+              Place your order
             </Text>
           </Pressable>
         </View>
