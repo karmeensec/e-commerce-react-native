@@ -226,6 +226,26 @@ const ConfirmScreen = () => {
                       </Text>
                     </Pressable>
                   </View>
+
+                  <View>
+                    {selectedAddress && selectedAddress._id === item?._id && (
+                      <Pressable
+                        style={{
+                          marginTop: 15,
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: 8,
+                          backgroundColor: "#273746",
+                          borderRadius: 20,
+                          elevation: 5,
+                        }}
+                      >
+                        <Text style={{ color: "white", textAlign: "center" }}>
+                          Deliver to selected address
+                        </Text>
+                      </Pressable>
+                    )}
+                  </View>
                 </View>
               </Pressable>
             ))}
