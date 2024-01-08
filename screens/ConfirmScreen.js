@@ -18,6 +18,8 @@ const ConfirmScreen = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [addresses, setAddresses] = useState([]);
 
+  const [selectedAddress, setSelectedAddress] = useState("");
+
   useEffect(() => {
     fetchAddresses();
   }, []);
@@ -37,6 +39,10 @@ const ConfirmScreen = () => {
   };
 
   console.log("All addresses Confirm screen: ", addresses);
+
+  const handleSelectedAddressPress = (item) => {
+    setSelectedAddress(item);
+  };
 
   return (
     <ScrollView style={{ marginTop: 45 }}>
@@ -108,6 +114,7 @@ const ConfirmScreen = () => {
           <Pressable>
             {addresses?.map((item, index) => (
               <Pressable
+                key={index}
                 style={{
                   borderWidth: 1,
                   marginVertical: 10,
@@ -119,7 +126,16 @@ const ConfirmScreen = () => {
                   borderRadius: 5,
                 }}
               >
-                <FontAwesome5 name="circle" size={24} color="black" />
+                {selectedAddress && selectedAddress._id === item?._id ? (
+                  <FontAwesome5 name="dot-circle" size={24} color="black" />
+                ) : (
+                  <FontAwesome5
+                    onPress={() => handleSelectedAddressPress(item)}
+                    name="circle"
+                    size={24}
+                    color="black"
+                  />
+                )}
 
                 <View style={{ marginHorizontal: 6 }}>
                   <View
