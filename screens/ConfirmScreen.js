@@ -19,6 +19,7 @@ const ConfirmScreen = () => {
   const [addresses, setAddresses] = useState([]);
 
   const [selectedAddress, setSelectedAddress] = useState("");
+  const [isOption, setIsOption] = useState(false);
 
   useEffect(() => {
     fetchAddresses();
@@ -45,7 +46,11 @@ const ConfirmScreen = () => {
   };
 
   const handleCurrentStep = () => {
-    setCurrentStep(1);
+    setCurrentStep(currentStep + 1);
+  };
+
+  const handleOptionPress = () => {
+    setIsOption((prev) => !prev);
   };
 
   return (
@@ -240,12 +245,19 @@ const ConfirmScreen = () => {
                           alignItems: "center",
                           justifyContent: "center",
                           padding: 8,
-                          backgroundColor: "#273746",
+                          backgroundColor: "#17202A",
+
                           borderRadius: 20,
                           elevation: 5,
                         }}
                       >
-                        <Text style={{ color: "white", textAlign: "center" }}>
+                        <Text
+                          style={{
+                            color: "white",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                          }}
+                        >
                           Deliver to selected address
                         </Text>
                       </Pressable>
@@ -277,12 +289,16 @@ const ConfirmScreen = () => {
               backgroundColor: "#F2F4F4",
             }}
           >
-            <FontAwesome5
-              onPress={() => handleSelectedAddressPress(item)}
-              name="circle"
-              size={24}
-              color="black"
-            />
+            {isOption ? (
+              <FontAwesome5 name="dot-circle" size={24} color="black" />
+            ) : (
+              <FontAwesome5
+                onPress={handleOptionPress}
+                name="circle"
+                size={24}
+                color="black"
+              />
+            )}
 
             <Text style={{ flex: 1 }}>
               <Text style={{ fontWeight: "500", color: "#138D75" }}>
@@ -293,6 +309,7 @@ const ConfirmScreen = () => {
           </View>
 
           <Pressable
+            onPress={handleCurrentStep}
             style={{
               padding: 10,
               justifyContent: "center",
@@ -305,7 +322,9 @@ const ConfirmScreen = () => {
               elevation: 5,
             }}
           >
-            <Text style={{ color: "white" }}>Continue</Text>
+            <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}>
+              Continue
+            </Text>
           </Pressable>
         </View>
       )}
