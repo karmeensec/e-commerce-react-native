@@ -20,6 +20,7 @@ const ConfirmScreen = () => {
 
   const [selectedAddress, setSelectedAddress] = useState("");
   const [isOption, setIsOption] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
 
   useEffect(() => {
     fetchAddresses();
@@ -81,12 +82,14 @@ const ConfirmScreen = () => {
               <View
                 style={[
                   {
-                    width: 30,
-                    height: 30,
-                    borderRadius: 15,
+                    width: 40,
+                    height: 40,
+                    borderRadius: 20,
                     backgroundColor: "#ccc",
                     justifyContent: "center",
                     alignItems: "center",
+                    borderWidth: 1.5,
+                    elevation: 5,
                   },
                   index < currentStep && { backgroundColor: "#138D75" },
                 ]}
@@ -306,6 +309,87 @@ const ConfirmScreen = () => {
               </Text>
               - Get a FREE delivery with a Premium membership
             </Text>
+          </View>
+
+          <Pressable
+            onPress={handleCurrentStep}
+            style={{
+              padding: 10,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 10,
+              marginHorizontal: 10,
+              backgroundColor: "#17202A",
+              borderRadius: 10,
+              borderWidth: 1,
+              elevation: 5,
+            }}
+          >
+            <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}>
+              Continue
+            </Text>
+          </Pressable>
+        </View>
+      )}
+
+      {currentStep == 2 && (
+        <View style={{ marginHorizontal: 20 }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            Select your payment method
+          </Text>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              padding: 8,
+              gap: 7,
+              borderColor: "#A6ACAF",
+              borderWidth: 1,
+              borderRadius: 8,
+              marginVertical: 10,
+              backgroundColor: "#F2F4F4",
+            }}
+          >
+            {selectedOption === "cash" ? (
+              <FontAwesome5 name="dot-circle" size={24} color="black" />
+            ) : (
+              <FontAwesome5
+                onPress={() => setSelectedOption("cash")}
+                name="circle"
+                size={24}
+                color="black"
+              />
+            )}
+
+            <Text>Cash on Delivery</Text>
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              padding: 8,
+              gap: 7,
+              borderColor: "#A6ACAF",
+              borderWidth: 1,
+              borderRadius: 8,
+              marginVertical: 10,
+              backgroundColor: "#F2F4F4",
+            }}
+          >
+            {selectedOption === "card" ? (
+              <FontAwesome5 name="dot-circle" size={24} color="black" />
+            ) : (
+              <FontAwesome5
+                onPress={() => setSelectedOption("card")}
+                name="circle"
+                size={24}
+                color="black"
+              />
+            )}
+
+            <Text>Credit or Debit card</Text>
           </View>
 
           <Pressable
