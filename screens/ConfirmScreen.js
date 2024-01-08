@@ -257,6 +257,58 @@ const ConfirmScreen = () => {
           </Pressable>
         </View>
       )}
+
+      {currentStep == 1 && (
+        <View style={{ marginHorizontal: 20 }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            Select your delivery options
+          </Text>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              padding: 8,
+              gap: 7,
+              borderColor: "#A6ACAF",
+              borderWidth: 1,
+              borderRadius: 8,
+              marginVertical: 10,
+              backgroundColor: "#F2F4F4",
+            }}
+          >
+            <FontAwesome5
+              onPress={() => handleSelectedAddressPress(item)}
+              name="circle"
+              size={24}
+              color="black"
+            />
+
+            <Text style={{ flex: 1 }}>
+              <Text style={{ fontWeight: "500", color: "#138D75" }}>
+                Tomorrow by 10PM
+              </Text>
+              - Get a FREE delivery with a Premium membership
+            </Text>
+          </View>
+
+          <Pressable
+            style={{
+              padding: 10,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 10,
+              marginHorizontal: 10,
+              backgroundColor: "#17202A",
+              borderRadius: 10,
+              borderWidth: 1,
+              elevation: 5,
+            }}
+          >
+            <Text style={{ color: "white" }}>Continue</Text>
+          </Pressable>
+        </View>
+      )}
     </ScrollView>
   );
 };
