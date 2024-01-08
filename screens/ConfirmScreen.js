@@ -44,6 +44,10 @@ const ConfirmScreen = () => {
     setSelectedAddress(item);
   };
 
+  const handleCurrentStep = () => {
+    setCurrentStep(1);
+  };
+
   return (
     <ScrollView style={{ marginTop: 45 }}>
       <View style={{ flex: 1, paddingHorizontal: 20, paddingTop: 40 }}>
@@ -63,8 +67,8 @@ const ConfirmScreen = () => {
               {index > 0 && (
                 <View
                   style={[
-                    { flex: 1, height: 2, backgroundColor: "green" },
-                    index <= currentStep && { backgroundColor: "green" },
+                    { flex: 1, height: 2, backgroundColor: "#138D75" },
+                    index <= currentStep && { backgroundColor: "#138D75" },
                   ]}
                 />
               )}
@@ -79,7 +83,7 @@ const ConfirmScreen = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   },
-                  index < currentStep && { backgroundColor: "green" },
+                  index < currentStep && { backgroundColor: "#138D75" },
                 ]}
               >
                 {index < currentStep ? (
@@ -230,6 +234,7 @@ const ConfirmScreen = () => {
                   <View>
                     {selectedAddress && selectedAddress._id === item?._id && (
                       <Pressable
+                        onPress={handleCurrentStep}
                         style={{
                           marginTop: 15,
                           alignItems: "center",
