@@ -2,11 +2,13 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/CartReducer";
+import { useNavigation } from "@react-navigation/native";
 
 const ProductItem = ({ item }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const handleAddToCart = (item) => {
     setIsAddedToCart(true);
@@ -15,6 +17,10 @@ const ProductItem = ({ item }) => {
     setTimeout(() => {
       setIsAddedToCart(false);
     }, 60000);
+  };
+
+  const handleViewCartPress = () => {
+    navigation.navigate("Cart");
   };
 
   return (
@@ -50,7 +56,13 @@ const ProductItem = ({ item }) => {
       </View>
 
       <Pressable
-        onPress={() => handleAddToCart(item)}
+        onPress={() => {
+          if (isAddedToCart) {
+            handleViewCartPress();
+          } else {
+            handleAddToCart(item);
+          }
+        }}
         style={{
           padding: 10,
           justifyContent: "center",
