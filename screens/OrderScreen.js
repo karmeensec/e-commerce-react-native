@@ -1,11 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LottieView from "lottie-react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const OrderScreen = () => {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace("Main");
+    }, 1300);
+  }, []);
+
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "transparent" }}>
       <LottieView
         source={require("../assets/thumbs.json")}
         // ref={animation}
