@@ -4,9 +4,14 @@ import axios from "axios";
 import { UserType } from "../UserContext";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { clearCart } from "../redux/CartReducer";
 
 const ConfirmScreen = () => {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
   const steps = [
     { title: "Address", content: "Address Form" },
     { title: "Delivery", content: "Delivery Options" },
@@ -59,6 +64,50 @@ const ConfirmScreen = () => {
 
   const handleOptionPress = () => {
     setIsOption((prev) => !prev);
+  };
+
+  const handlePlaceOrderPress = async () => {
+    try {
+      const orderData = {
+        userId: userId,
+        cartItems: cart,
+        totalPrice: total,
+        shippingAddress: {
+          houseNo: selectedAddress?.houseNumber, // Add the correct field from your data
+          mobileNo: selectedAddress?.mobileNumber, // Add the correct field from your data
+          // Add other required fields from selectedAddress if necessary
+          name: selectedAddress?.name || "",
+          street: selectedAddress?.street,
+          landmark: selectedAddress?.landmark,
+          postalCode: selectedAddress?.postalCode,
+        },
+        paymentMethod: selectedOption,
+      };
+
+      const response = await axios.post(
+        "http://10.0.2.2:8000/orders",
+        orderData,
+        {
+          headers: {
+            Accept: "application/json",
+            "content-type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        navigation.navigate("Order");
+
+        dispatch(clearCart());
+        console.log("All response data: ", response.data);
+        console.log("Order was successfully created! ", response.data.message);
+      } else {
+        console.log("Error creating Order! ", response.data);
+        Alert.alert("Error creating Order");
+      }
+    } catch (error) {
+      console.log("Place Order Error: ", error);
+    }
   };
 
   return (
@@ -526,6 +575,7 @@ const ConfirmScreen = () => {
           </View>
 
           <Pressable
+            onPress={handlePlaceOrderPress}
             style={{
               padding: 10,
               justifyContent: "center",
