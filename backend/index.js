@@ -257,7 +257,7 @@ app.post("/orders", async (req, res) => {
   }
 });
 
-// Get speciefied user profile
+// Get specified user profile
 
 app.get("/profile/:userId", async (req, res) => {
   try {
