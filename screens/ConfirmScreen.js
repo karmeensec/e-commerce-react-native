@@ -73,9 +73,8 @@ const ConfirmScreen = () => {
         cartItems: cart,
         totalPrice: total,
         shippingAddress: {
-          houseNo: selectedAddress?.houseNumber, // Add the correct field from your data
-          mobileNo: selectedAddress?.mobileNumber, // Add the correct field from your data
-          // Add other required fields from selectedAddress if necessary
+          houseNo: selectedAddress?.houseNumber,
+          mobileNo: selectedAddress?.mobileNumber,
           name: selectedAddress?.name || "",
           street: selectedAddress?.street,
           landmark: selectedAddress?.landmark,

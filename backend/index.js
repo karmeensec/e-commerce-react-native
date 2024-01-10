@@ -244,8 +244,8 @@ app.post("/orders", async (req, res) => {
       products: products,
       totalPrice: totalPrice,
       shippingAddress: {
-        name: shippingAddress?.name, // Make sure 'name' is defined in the shippingAddress
-        houseNo: shippingAddress?.houseNo, // Add the correct field from your data
+        name: shippingAddress?.name,
+        houseNo: shippingAddress?.houseNo,
         mobileNo: shippingAddress?.mobileNo,
         street: shippingAddress?.street,
         landmark: shippingAddress?.landmark,
