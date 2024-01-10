@@ -211,6 +211,48 @@ app.get("/address/:userId", async (req, res) => {
   } catch (error) {
     console.log("Getting all the addresses endpoint error: ", error);
 
-    res.status(500).json({ message: "Error getting addresses" });
+    res.status(500).json({ message: "Error getting addresses!" });
+  }
+});
+
+// Store all the orders endpoint
+
+app.post("/orders", async (req, res) => {
+  try {
+    const { userId, cartItems, totalPrice, shippingAddress, paymentMethod } =
+      req.body;
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Create an array of product objects from the cart items
+
+    const products = cartItems.map((item) => ({
+      name: item?.name,
+      quantity: item?.quantity,
+      price: item?.price,
+      image: item?.image,
+    }));
+
+    // Create a new order
+
+    const order = new Order({
+      user: userId,
+      products: products,
+      totalPrice: totalPrice,
+      shippingAddress: shippingAddress,
+      paymentMethod: paymentMethod,
+    });
+
+    await order.save();
+
+    res.status(200).json({ message: "Order created succesfully!" });
+  } catch (error) {
+    console.log("Storing all the orders endpoint error: ", error);
+
+    res.status(500).json({ message: "Error storing orders!" });
   }
 });
