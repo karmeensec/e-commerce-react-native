@@ -276,3 +276,25 @@ app.get("/profile/:userId", async (req, res) => {
     res.status(500).json({ message: "Error getting the user profile!" });
   }
 });
+
+// Get orders for the specified user profile
+
+app.get("/orders/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    const orders = await Order.find({ user: userId }).populate("user");
+
+    if (!orders || orders.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "Orders not found for the specified user" });
+    }
+
+    res.status(200).json({ orders });
+  } catch (error) {
+    console.log("Getting the orders for user profile endpoint error: ", error);
+
+    res.status(500).json({ message: "Error getting orders!" });
+  }
+});
