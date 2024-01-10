@@ -521,7 +521,7 @@ const ConfirmScreen = () => {
           >
             <Text style={{ fontSize: 15, color: "#808B96" }}>Pay with</Text>
             <Text style={{ fontSize: 15, fontWeight: "600" }}>
-              Pay on delivery
+              Pay on delivery (Cash)
             </Text>
           </View>
 
