@@ -148,7 +148,7 @@ const HomeScreen = () => {
       id: 0,
       title:
         "SAMSUNG Galaxy Tab S6 Lite 10.4 64GB Android Tablet, LCD Screen, S Pen Included, Slim Metal Design, AKG Dual Speakers, 8MP Rear Camera, Long Lasting Battery, US Version, 2022, Angora Blue",
-      offer: "43% off",
+      offer: "43% OFF",
       oldPrice: 349.99,
       price: 199.99,
       image:
@@ -168,7 +168,7 @@ const HomeScreen = () => {
       id: 1,
       title:
         "Turtle Beach Stealth 600 Gen 2 MAX Multiplatform Amplified Wireless Gaming Headset for Xbox Series X|S, Xbox One, PS5, PS4, Windows 10 & 11 PCs & Nintendo Switch - 48+ Hour Battery - Black",
-      offer: "17% off",
+      offer: "17% OFF",
       oldPrice: 119.99,
       price: 99.26,
       image:
@@ -188,7 +188,7 @@ const HomeScreen = () => {
       id: 2,
       title:
         "ASUS TUF Gaming 27 1080P Monitor - Full HD, 165Hz (Supports 144Hz), 1ms, Extreme Low Motion Blur, FreeSync Premium, Shadow Boost, Eye Care, HDMI, DisplayPort, Tilt Adjustable - VG277Q1A,Black",
-      offer: "25% off",
+      offer: "25% OFF",
       oldPrice: 199.99,
       price: 149.0,
       image:
@@ -208,7 +208,7 @@ const HomeScreen = () => {
       id: 3,
       title:
         "TP-Link TL-SG105, 5 Port Gigabit Unmanaged Ethernet Switch, Network Hub, Ethernet Splitter, Plug & Play, Fanless Metal Design, Shielded Ports, Traffic Optimization,Navy Blue",
-      offer: "20% off",
+      offer: "20% OFF",
       oldPrice: 19.99,
       price: 15.99,
       image:
@@ -224,7 +224,7 @@ const HomeScreen = () => {
       id: 4,
       title:
         "ASUS ROG Strix G15 (2022) Gaming Laptop, 15” 16:10 FHD 144Hz, GeForce RTX 3050, AMD Ryzen™ 7 6800H/HS, 16GB DDR5, 512GB PCIe SSD, Wi-Fi 6E, Windows 11, G513RC-ES73, Eclipse Gray",
-      offer: "20% off",
+      offer: "20% OFF",
       oldPrice: 999.99,
       price: 848.99,
       image:
@@ -243,7 +243,7 @@ const HomeScreen = () => {
       id: 5,
       title:
         "Ninja SFP701 Combi All-in-One Multicooker, Oven, and Air Fryer, 14-in-1 Functions,15-Minute Complete Meals, Includes 3 Accessories, Auto Cook Menu, Timer, Automatic Shut-Off, Grey, 14.92 x15.43 x13.11",
-      offer: "20% off",
+      offer: "20% OFF",
       oldPrice: 229.99,
       price: 149.99,
       image:
@@ -263,7 +263,7 @@ const HomeScreen = () => {
       id: 6,
       title:
         "Amazfit GTR 4 Smart Watch for Men Android iPhone, Dual-Band GPS, Alexa Built-in, Bluetooth Calls, 150+ Sports Modes, 14-Day Battery Life, Heart Rate Blood Oxygen Monitor, 1.43”AMOLED Display,Black",
-      offer: "15% off",
+      offer: "15% OFF",
       oldPrice: 199.99,
       price: 169.99,
       image:
