@@ -363,6 +363,7 @@ const HomeScreen = () => {
       size: item?.size,
       oldPrice: item?.oldPrice,
       item: item,
+      offer: item?.offer,
     });
   };
 
