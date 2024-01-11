@@ -12,6 +12,7 @@ import shoppingBasket from "../images/shopping-basket.png";
 import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
 import { UserType } from "../UserContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -78,6 +79,16 @@ const ProfileScreen = () => {
   }, []);
 
   console.log("Profile user: ", profileUser);
+
+  const clearAuthToken = async () => {
+    await AsyncStorage.removeItem("authToken");
+    console.log("Auth token cleared!");
+    navigation.replace("Login");
+  };
+
+  const handleLogout = () => {
+    clearAuthToken();
+  };
 
   return (
     <ScrollView style={{ padding: 10, flex: 1 }}>
@@ -155,6 +166,7 @@ const ProfileScreen = () => {
         </Pressable>
 
         <Pressable
+          onPress={handleLogout}
           style={{
             padding: 10,
             borderRadius: 25,
