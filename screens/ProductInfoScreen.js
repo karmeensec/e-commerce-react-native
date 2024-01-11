@@ -115,9 +115,13 @@ const ProductInfoScreen = () => {
                   ]}
                 >
                   <View style={styles.flipItem}>
-                    <Text style={styles.flipText}>
-                      {isFlipped ? route.params?.offer : route.params?.offer}
-                    </Text>
+                    {route.params?.offer ? (
+                      <Text style={styles.flipText}>
+                        {isFlipped ? route.params?.offer : route.params?.offer}
+                      </Text>
+                    ) : (
+                      <Text style={styles.flipText}>20% OFF</Text>
+                    )}
                   </View>
                 </Animated.View>
               </Pressable>
