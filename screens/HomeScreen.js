@@ -701,7 +701,7 @@ const HomeScreen = () => {
                 onPress={() => handleSetAddressPress(item)}
                 key={index}
                 style={{
-                  width: 140,
+                  width: 180,
                   height: 140,
                   borderColor: "#A6ACAF",
                   alignItems: "center",
@@ -716,7 +716,10 @@ const HomeScreen = () => {
                 <View
                   style={{ flexDirection: "row", alignItems: "center", gap: 3 }}
                 >
-                  <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+                  <Text
+                    numberOfLines={1}
+                    style={{ fontSize: 15, fontWeight: "bold" }}
+                  >
                     {item?.name}
                   </Text>
                   <Ionicons name="ios-location" size={24} color="#CB4335" />
