@@ -364,6 +364,7 @@ const HomeScreen = () => {
       oldPrice: item?.oldPrice,
       item: item,
       offer: item?.offer,
+      selectedAddress: selectedAddress,
     });
   };
 
