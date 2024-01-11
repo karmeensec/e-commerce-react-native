@@ -73,6 +73,10 @@ const ProductInfoScreen = () => {
     }, 60000);
   };
 
+  const handleViewCartPress = () => {
+    navigation.navigate("Cart");
+  };
+
   const cart = useSelector((state) => state.cart.cart);
 
   console.log("Cart itself: ", cart);
@@ -245,7 +249,13 @@ const ProductInfoScreen = () => {
       </Text>
 
       <Pressable
-        onPress={() => handleAddToCart(route?.params?.item)}
+        onPress={() => {
+          if (isAddedToCart) {
+            handleViewCartPress();
+          } else {
+            handleAddToCart(route?.params?.item);
+          }
+        }}
         style={{
           padding: 10,
           justifyContent: "center",
