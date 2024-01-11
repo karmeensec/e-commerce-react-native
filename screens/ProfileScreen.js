@@ -20,6 +20,8 @@ const ProfileScreen = () => {
   const { userId, setUserId } = useContext(UserType);
 
   const [profileUser, setProfileUser] = useState();
+  const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -89,6 +91,34 @@ const ProfileScreen = () => {
   const handleLogout = () => {
     clearAuthToken();
   };
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await axios.get(
+          `http://10.0.2.2:8000/orders/${userId}`,
+          {
+            headers: {
+              Accept: "application/json",
+              "content-type": "application/json",
+            },
+          }
+        );
+
+        console.log("Response data for orders: ", response.data);
+        const orders = response.data.orders;
+        setOrders(orders);
+
+        setIsLoading(false);
+      } catch (error) {
+        console.log("FetchOrders function error: ", error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
+  console.log("Profile screen orders: ", orders);
 
   return (
     <ScrollView style={{ padding: 10, flex: 1 }}>
