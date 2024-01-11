@@ -124,7 +124,7 @@ const ProfileScreen = () => {
     <ScrollView style={{ padding: 10, flex: 1 }}>
       <Text
         style={{
-          fontSize: 18,
+          fontSize: 20,
           fontWeight: "bold",
           textAlign: "center",
           marginVertical: 10,
@@ -135,15 +135,16 @@ const ProfileScreen = () => {
 
       <View
         style={{
-          flexDirection: "row",
+          flexDirection: "column",
           alignItems: "center",
-          gap: 10,
+          gap: 15,
           marginVertical: 10,
         }}
       >
         <Pressable
           style={{
-            padding: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 50,
             borderRadius: 25,
             flex: 1,
             backgroundColor: "#EAECEE",
@@ -151,38 +152,17 @@ const ProfileScreen = () => {
             elevation: 2,
           }}
         >
-          <Text style={{ textAlign: "center", fontWeight: "bold" }}>
-            Your Orders
-          </Text>
-        </Pressable>
-
-        <Pressable
-          style={{
-            padding: 10,
-            borderRadius: 25,
-            flex: 1,
-            backgroundColor: "#EAECEE",
-            borderWidth: 0.5,
-            elevation: 2,
-          }}
-        >
-          <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+          <Text
+            style={{ textAlign: "center", fontWeight: "bold", fontSize: 15 }}
+          >
             Your Account
           </Text>
         </Pressable>
-      </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 10,
-          marginVertical: 10,
-        }}
-      >
         <Pressable
           style={{
-            padding: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 50,
             borderRadius: 25,
             flex: 1,
             backgroundColor: "#EAECEE",
@@ -190,7 +170,9 @@ const ProfileScreen = () => {
             elevation: 2,
           }}
         >
-          <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+          <Text
+            style={{ textAlign: "center", fontWeight: "bold", fontSize: 15 }}
+          >
             Buy Again
           </Text>
         </Pressable>
@@ -198,7 +180,8 @@ const ProfileScreen = () => {
         <Pressable
           onPress={handleLogout}
           style={{
-            padding: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 50,
             borderRadius: 25,
             flex: 1,
             backgroundColor: "#EAECEE",
@@ -206,11 +189,52 @@ const ProfileScreen = () => {
             elevation: 2,
           }}
         >
-          <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+          <Text
+            style={{ textAlign: "center", fontWeight: "bold", fontSize: 15 }}
+          >
             Log Out
           </Text>
         </Pressable>
       </View>
+
+      <View style={{ marginVertical: 20 }}>
+        <Text style={{ textAlign: "center", fontWeight: "500", fontSize: 18 }}>
+          Your Recent Orders
+        </Text>
+      </View>
+
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {isLoading ? (
+          <Text style={{ textAlign: "center" }}>Loading...</Text>
+        ) : orders.length > 0 ? (
+          orders.map((order) => (
+            <Pressable
+              key={order._id}
+              style={{
+                marginTop: 20,
+                padding: 15,
+                borderRadius: 8,
+                borderWidth: 1,
+                borderColor: "#d0d0d0",
+                marginHorizontal: 10,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {order.products.slice(0, 1)?.map((product) => (
+                <View key={product._id} style={{ marginVertical: 10 }}>
+                  <Image
+                    source={{ uri: product.image }}
+                    style={{ width: 100, height: 100, resizeMode: "contain" }}
+                  />
+                </View>
+              ))}
+            </Pressable>
+          ))
+        ) : (
+          <Text>No orders found</Text>
+        )}
+      </ScrollView>
     </ScrollView>
   );
 };
