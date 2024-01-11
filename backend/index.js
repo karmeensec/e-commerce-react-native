@@ -240,7 +240,7 @@ app.post("/orders", async (req, res) => {
     // Create a new order
 
     const order = new Order({
-      name: userId,
+      user: userId,
       products: products,
       totalPrice: totalPrice,
       shippingAddress: {
@@ -289,8 +289,17 @@ app.get("/profile/:userId", async (req, res) => {
 app.get("/orders/:userId", async (req, res) => {
   try {
     const userId = req.params.userId;
+    console.log("User Id: ", userId);
+
+    const user = await User.findById(userId);
+    console.log("User itself: ", user);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
     const orders = await Order.find({ user: userId }).populate("user");
+
+    console.log("Your orders: ", orders);
 
     if (!orders || orders.length === 0) {
       return res
