@@ -121,7 +121,7 @@ const ProfileScreen = () => {
   console.log("Profile screen orders: ", orders);
 
   const handleYourAccountPress = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Account");
   };
 
   const handleBuyAgainPress = () => {
