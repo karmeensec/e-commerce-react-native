@@ -1,4 +1,11 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserType } from "../UserContext";
@@ -7,6 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { clearCart } from "../redux/CartReducer";
+import RazorpayCheckout from "react-native-razorpay";
 
 const ConfirmScreen = () => {
   const navigation = useNavigation();
@@ -66,6 +74,8 @@ const ConfirmScreen = () => {
     setIsOption((prev) => !prev);
   };
 
+  // Payment handlers
+
   const handlePlaceOrderPress = async () => {
     try {
       const orderData = {
@@ -106,6 +116,67 @@ const ConfirmScreen = () => {
       }
     } catch (error) {
       console.log("Place Order Error: ", error);
+    }
+  };
+
+  const handlePay = async () => {
+    try {
+      const options = {
+        description: "Adding To Wallet",
+        currency: "USD",
+        name: "Ecommerce",
+        key: "rzp_test_M4frYESTiqVgi8",
+        amount: total * 100,
+        prefill: {
+          email: "void@razorpay.com",
+          contact: "9191919191",
+          name: "RazorPay Software",
+        },
+        theme: { color: "#F37254" },
+      };
+
+      const data = await RazorpayCheckout.open(options);
+
+      console.log("Razorpay Checkout data: ", data);
+
+      const orderData = {
+        userId: userId,
+        cartItems: cart,
+        totalPrice: total,
+        shippingAddress: {
+          houseNo: selectedAddress?.houseNumber,
+          mobileNo: selectedAddress?.mobileNumber,
+          name: selectedAddress?.name || "",
+          street: selectedAddress?.street,
+          landmark: selectedAddress?.landmark,
+          postalCode: selectedAddress?.postalCode,
+        },
+        paymentMethod: "card",
+      };
+
+      const response = await axios.post(
+        "http://10.0.2.2:8000/orders",
+        orderData,
+        {
+          headers: {
+            Accept: "application/json",
+            "content-type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        navigation.navigate("Order");
+
+        dispatch(clearCart());
+        console.log("All response data: ", response.data);
+        console.log("Order was successfully created! ", response.data.message);
+      } else {
+        console.log("Error creating Order! ", response.data);
+        Alert.alert("Error creating Order");
+      }
+    } catch (error) {
+      console.log("Handle Pay function Error: ", error);
     }
   };
 
@@ -362,7 +433,7 @@ const ConfirmScreen = () => {
               <Text style={{ fontWeight: "500", color: "#138D75" }}>
                 Tomorrow by 10PM
               </Text>
-              - Get a FREE delivery with a Premium membership
+              <Text> - Get a FREE delivery with a Premium membership</Text>
             </Text>
           </View>
 
@@ -437,7 +508,20 @@ const ConfirmScreen = () => {
               <FontAwesome5 name="dot-circle" size={24} color="black" />
             ) : (
               <FontAwesome5
-                onPress={() => setSelectedOption("card")}
+                onPress={() => {
+                  setSelectedOption("card");
+                  Alert.alert("Debit/Credit card", "Pay Online", [
+                    {
+                      text: "Cancel",
+                      onPress: () => console.log("Cancel button is pressed"),
+                    },
+
+                    {
+                      text: "Ok",
+                      onPress: () => handlePay(),
+                    },
+                  ]);
+                }}
                 name="circle"
                 size={24}
                 color="black"
