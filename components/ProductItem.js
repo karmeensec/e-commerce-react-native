@@ -69,12 +69,21 @@ const ProductItem = ({ item }) => {
           alignItems: "center",
           marginTop: 10,
           marginHorizontal: 10,
-          backgroundColor: "#F1C40F",
+          backgroundColor: "#17202A",
+          borderColor: "#A9A9A9",
           borderRadius: 10,
           borderWidth: 1,
         }}
       >
-        {isAddedToCart ? <Text>View Cart</Text> : <Text>Add to cart</Text>}
+        {isAddedToCart ? (
+          <Text style={{ color: "white", fontWeight: "bold", fontSize: 12 }}>
+            View Cart
+          </Text>
+        ) : (
+          <Text style={{ color: "white", fontWeight: "bold", fontSize: 12 }}>
+            Add to cart
+          </Text>
+        )}
       </Pressable>
     </Pressable>
   );

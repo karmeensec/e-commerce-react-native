@@ -79,15 +79,15 @@ const CartScreen = () => {
             borderWidth: 1,
             elevation: 10,
             backgroundColor: pressed
-              ? "#D4AC0D"
+              ? "##17202A"
               : cart.length === 0
               ? "#D3D3D3"
-              : "#F1C40F",
+              : "#1C2833",
           },
           cart.length === 0 && { borderColor: "#A9A9A9" }, // Change border color when disabled
         ]}
       >
-        <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+        <Text style={{ fontSize: 15, fontWeight: "bold", color: "white" }}>
           {" "}
           Proceed to buy{" "}
           <Text style={{ fontSize: 18, fontWeight: "bold" }}>

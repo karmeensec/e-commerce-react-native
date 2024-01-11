@@ -263,7 +263,8 @@ const ProductInfoScreen = () => {
           marginTop: 10,
           marginHorizontal: 10,
           marginVertical: 10,
-          backgroundColor: "#F1C40F",
+          backgroundColor: "#17202A",
+          borderColor: "#A9A9A9",
           borderRadius: 20,
           borderWidth: 1,
           elevation: 10,
@@ -271,10 +272,14 @@ const ProductInfoScreen = () => {
       >
         {isAddedToCart ? (
           <View>
-            <Text style={{ fontSize: 15, fontWeight: "bold" }}>View Cart</Text>
+            <Text style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
+              View Cart
+            </Text>
           </View>
         ) : (
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>Add to Cart</Text>
+          <Text style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
+            Add to Cart
+          </Text>
         )}
       </Pressable>
 
@@ -287,6 +292,7 @@ const ProductInfoScreen = () => {
           marginHorizontal: 10,
           marginVertical: 10,
           backgroundColor: "#ECF0F1",
+          borderColor: "#A9A9A9",
           borderRadius: 20,
           borderWidth: 1,
           elevation: 10,
