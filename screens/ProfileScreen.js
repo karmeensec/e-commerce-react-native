@@ -120,6 +120,14 @@ const ProfileScreen = () => {
 
   console.log("Profile screen orders: ", orders);
 
+  const handleYourAccountPress = () => {
+    navigation.navigate("Home");
+  };
+
+  const handleBuyAgainPress = () => {
+    navigation.navigate("Home");
+  };
+
   return (
     <ScrollView style={{ padding: 10, flex: 1 }}>
       <Text
@@ -142,6 +150,7 @@ const ProfileScreen = () => {
         }}
       >
         <Pressable
+          onPress={handleYourAccountPress}
           style={{
             paddingVertical: 10,
             paddingHorizontal: 50,
@@ -160,6 +169,7 @@ const ProfileScreen = () => {
         </Pressable>
 
         <Pressable
+          onPress={handleBuyAgainPress}
           style={{
             paddingVertical: 10,
             paddingHorizontal: 50,
