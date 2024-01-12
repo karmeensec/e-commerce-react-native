@@ -61,19 +61,39 @@ const RegisterScreen = () => {
         console.log("Register post request response: ", res);
         console.log("Register post request response: ", res.data);
 
-        Alert.alert(
-          "Registration successful",
-          "You have successfully registered!"
-        );
-
-        setName("");
-        setEmail("");
-        setPassword("");
+        if (
+          res.data.message ===
+            "Registration successful. Please check your email for verification." ||
+          res.data.message === "Email already exists!"
+        ) {
+          Alert.alert(
+            "Registration successful",
+            "You have successfully registered!"
+          );
+          setName("");
+          setEmail("");
+          setPassword("");
+        } else {
+          Alert.alert(
+            "Registration failed",
+            "Error occurred while registering!"
+          );
+        }
       })
       .catch((error) => {
-        Alert.alert("Registration failed", "Error occurred while registering!");
-        console.log("Registration post request error: ", error);
-        console.error("Registration post request error: ", error.message);
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.message
+        ) {
+          Alert.alert("Registration failed", error.response.data.message);
+        } else {
+          Alert.alert(
+            "Registration failed",
+            "Error occurred while registering!"
+          );
+        }
+        console.log("Registration failed", error);
       });
   };
 
