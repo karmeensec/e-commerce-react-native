@@ -51,7 +51,7 @@ const sendVerificationEmail = async (email, verificationToken) => {
     from: "ecommerce.com",
     to: email,
     subject: "Ecommerce email verification",
-    text: `Please click the following link to verify your email address: http://10.0.2.2:8000/verify/${verificationToken}`,
+    text: `Please click the following link to verify your email address: http://127.0.0.1:8000/verify/${verificationToken}`,
   };
 
   // Sending an email
@@ -93,6 +93,11 @@ app.post("/register", async (req, res) => {
     // Sending a verification email to the user
 
     sendVerificationEmail(newUser.email, newUser.verificationToken);
+
+    res.status(201).json({
+      message:
+        "Registration successful. Please check your email for verification.",
+    });
   } catch (error) {
     console.log("Error registering: ", error);
     res.status(500).json({ message: "Registration failed" });
