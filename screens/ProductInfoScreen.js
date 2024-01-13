@@ -236,12 +236,18 @@ const ProductInfoScreen = () => {
           }}
         >
           <Ionicons name="location-outline" size={24} color="black" />
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
-            Deliver to -{" "}
-            <Text style={{ fontSize: 14, fontWeight: "400" }}>
-              {`${selectedHomeAddress?.name}, ${selectedHomeAddress?.street}, ${selectedHomeAddress?.postalCode}`}
+          {selectedHomeAddress ? (
+            <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+              Deliver to -{" "}
+              <Text style={{ fontSize: 14, fontWeight: "400" }}>
+                {`${selectedHomeAddress?.name}, ${selectedHomeAddress?.street}, ${selectedHomeAddress?.postalCode}`}
+              </Text>
             </Text>
-          </Text>
+          ) : (
+            <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+              Select your address
+            </Text>
+          )}
         </View>
       </View>
 
