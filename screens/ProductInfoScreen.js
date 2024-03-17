@@ -85,7 +85,7 @@ const ProductInfoScreen = () => {
     if (!isAddedToCart) {
       handleAddToCart(route?.params?.item);
     }
-    // Navigate to the "Cart" screen regardless of whether the item was added to the cart or not
+
     navigation.navigate("Cart");
   };
 
