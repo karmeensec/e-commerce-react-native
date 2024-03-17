@@ -51,6 +51,15 @@ const CartScreen = () => {
     navigation.navigate("Confirm");
   };
 
+  const getImageSource = (image) => {
+    // Check if image is a URI or a local resource
+    if (typeof image === "string" && image.startsWith("http")) {
+      return { uri: image };
+    } else {
+      return image;
+    }
+  };
+
   return (
     <ScrollView style={{ marginTop: 40, flex: 1 }}>
       <Header />
@@ -132,7 +141,7 @@ const CartScreen = () => {
               <View>
                 <Image
                   style={{ width: 140, height: 140, resizeMode: "contain" }}
-                  source={{ uri: item?.image }}
+                  source={getImageSource(item?.image)}
                 />
               </View>
 

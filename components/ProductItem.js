@@ -23,6 +23,24 @@ const ProductItem = ({ item }) => {
     navigation.navigate("Cart");
   };
 
+  const handleProductPress = () => {
+    navigation.navigate("Info", {
+      id: item.id,
+      title: item.title,
+      price: item?.price,
+      carouselImages: item.carouselImages,
+      color: item?.color,
+      size: item?.size,
+      oldPrice: item?.oldPrice,
+      item: item,
+      offer: item?.offer,
+      rating: item?.rating,
+      image: item?.image,
+      // selectedAddress: selectedAddress,
+    });
+    console.log("this item : ", item);
+  };
+
   return (
     <Pressable
       style={{
@@ -33,6 +51,7 @@ const ProductItem = ({ item }) => {
         borderColor: "#D5D8DC",
         paddingVertical: 5,
       }}
+      onPress={handleProductPress}
     >
       <Image
         source={{ uri: item?.image }}

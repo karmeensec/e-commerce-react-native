@@ -74,15 +74,14 @@ const HomeScreen = () => {
   const deals = [
     {
       id: 0,
-      title: "Apple iPhone 12, 256GB, Blue - Unlocked (Renewed Premium)",
+      title: "Apple iPhone X, GSM Unlocked 5.8, 256 GB - Space Gray",
       typicalPrice: 546.39,
       price: 460,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/513NI5xpYjL._AC_SL1000_.jpg",
+      image: require("../images/deals/81ReA1gb8sL._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/513NI5xpYjL._AC_SL1000_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51ERFKUcVlL._AC_SL1000_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51yHm-RlBbL._AC_SL1000_.jpg",
+        require("../images/deals/81npBrq-s3L._AC_SL1500_.jpg"),
+        require("../images/deals/71qIcwo0SuL._AC_SL1500_.jpg"),
+        require("../images/deals/71xHgmViTJL._AC_SL1500_.jpg"),
       ],
       color: "Blue",
       size: "256GB",
@@ -90,53 +89,49 @@ const HomeScreen = () => {
 
     {
       id: 1,
-      title: "Apple iPhone 11, 64GB, Black - Unlocked (Renewed)",
+      title:
+        "Google Pixel 7a - Unlocked Android Cell Phone - Smartphone with Wide Angle Lens and 24-Hour Battery - 128 GB - Sea",
       typicalPrice: 307.95,
       price: 264.95,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61MG3m5FhIL._AC_SL1500_.jpg",
+      image: require("../images/deals/71m09hEhnwL._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61MG3m5FhIL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41Uss6iRXiL._AC_SL1333_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51ya2kKb6gL._AC_SL1500_.jpg",
+        require("../images/deals/71gyIvqVRYL._AC_SL1500_.jpg"),
+        require("../images/deals/81wMv71xXqL._AC_SL1500_.jpg"),
+        require("../images/deals/71Zb0QByDhL._AC_SL1500_.jpg"),
       ],
       color: "Black",
-      size: "64GB",
+      size: "128GB",
     },
 
     {
       id: 2,
       title:
-        "SAMSUNG Galaxy S20 FE G780F 128GB 8GB RAM Dual Sim GSM Unlocked International Version - Cloud Red",
+        "Xiaomi Redmi Note 12 5G (256GB + 8GB) (Tmobile Tello & Global) Unlocked 6.67 48MP Triple Camera + Extra (w/Fast Car Charger Bundle) (Forest Green...",
       typicalPrice: 499,
       price: 499,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71NjjYcElTL._AC_SL1500_.jpg",
+      image: require("../images/deals/71JQTp150HL._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71NjjYcElTL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71lseRlo5hL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71CBYSOUnIL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71oPiycuotL._AC_SL1500_.jpg",
+        require("../images/deals/71VbP-hRxzL._AC_SL1500_.jpg"),
+        require("../images/deals/71Ay8aNEKaL._AC_SL1500_.jpg"),
+        require("../images/deals/51ZScIG5GiL._AC_.jpg"),
+        require("../images/deals/513UR8QOf3L._AC_.jpg"),
       ],
-      color: "Cloud Red",
+      color: "Forest Green",
       size: "128GB",
     },
 
     {
       id: 3,
       title:
-        "Xiaomi Mi 13 Ultra 5G 256GB 12GB Factory Unlocked (GSM Only | No CDMA - not Compatible with Verizon/Sprint) China Version - Green",
+        "SAMSUNG Galaxy S24+ Plus Cell Phone, 256GB AI Smartphone, Unlocked Android, 50MP Camera, Fastest Processor, Long Battery Life, US Version, 2024, Onyx Black",
       typicalPrice: 999,
       price: 999,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7114DYWzqML._AC_SL1500_.jpg",
+      image: require("../images/deals/71NngboUC6L._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7114DYWzqML._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61C9J31MFtL._AC_SL1200_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41lv72KUNyL._AC_SL1081_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61bJcViuWGL._AC_SL1079_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71yy-RCDb0L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81KbTb-bVPL._AC_SL1500_.jpg",
+        require("../images/deals/71leyNMeprL._AC_SL1500_.jpg"),
+        require("../images/deals/71kGjgjzmPL._AC_SL1500_.jpg"),
+        require("../images/deals/71DXhOBo7sL._AC_SL1500_.jpg"),
+        require("../images/deals/71ADXeT-iQL._AC_SL1500_.jpg"),
       ],
       color: "Green",
       size: "256GB",
@@ -147,38 +142,32 @@ const HomeScreen = () => {
     {
       id: 0,
       title:
-        "SAMSUNG Galaxy Tab S6 Lite 10.4 64GB Android Tablet, LCD Screen, S Pen Included, Slim Metal Design, AKG Dual Speakers, 8MP Rear Camera, Long Lasting Battery, US Version, 2022, Angora Blue",
+        "Lenovo Tab M9-2023 - Tablet - Long Battery Life - 9 HD - Front 2MP & Rear 8MP Camera - 3GB Memory - 32GB Storage - Android 12 or Later - Folio Case...",
       offer: "43% OFF",
       oldPrice: 349.99,
       price: 199.99,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/415G0bg-hiL._AC_SL1000_.jpg",
+      image: require("../images/offers/618mxQZWt1L._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/415G0bg-hiL._AC_SL1000_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51QtzxAUZKL._AC_SL1000_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61cFm5eRcdL._AC_SL1000_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61Hd--NBHwL._AC_SL1000_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61h1KyNKFwL._AC_SL1000_.jpg",
+        require("../images/offers/61df7boSpXL._AC_SL1500_.jpg"),
+        require("../images/offers/61Cw22OyeOL._AC_SL1500_.jpg"),
+        require("../images/offers/61fJ3Jfx3RL._AC_SL1500_.jpg"),
       ],
       color: "Angora Blue",
-      size: "64GB",
+      size: "32GB",
     },
 
     {
       id: 1,
       title:
-        "Turtle Beach Stealth 600 Gen 2 MAX Multiplatform Amplified Wireless Gaming Headset for Xbox Series X|S, Xbox One, PS5, PS4, Windows 10 & 11 PCs & Nintendo Switch - 48+ Hour Battery - Black",
+        "JBL Quantum 360X - Wireless Consol Over-Ear Gaming Headset for Xbox with Detachable Boom mic, Up to 22-Hour Battery Life, Memory Foam Comfort, Compatible...",
       offer: "17% OFF",
       oldPrice: 119.99,
       price: 99.26,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81mLZHcCV1L._SL1500_.jpg",
+      image: require("../images/offers/51ioyakanoL._AC_SL1000_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/712Ve-FtgTL._SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71h+MzptHJL._SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61B5wernQSL._SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71MYdL98ycL._SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81YmCQUh-WL._SL1500_.jpg",
+        require("../images/offers/51a1kUab74L._AC_SL1000_.jpg"),
+        require("../images/offers/51oXF00xmuL._AC_SL1000_.jpg"),
+        require("../images/offers/61bHXWcJm8L._AC_SL1000_.jpg"),
       ],
       color: "Black",
       size: "Normal",
@@ -187,34 +176,32 @@ const HomeScreen = () => {
     {
       id: 2,
       title:
-        "ASUS TUF Gaming 27 1080P Monitor - Full HD, 165Hz (Supports 144Hz), 1ms, Extreme Low Motion Blur, FreeSync Premium, Shadow Boost, Eye Care, HDMI, DisplayPort, Tilt Adjustable - VG277Q1A,Black",
+        "Acer Nitro 5 Gaming Laptop | Intel 12th Gen i7-12650H | NVIDIA GeForce RTX 4060 Laptop GPU | 15.6” FHD 144Hz IPS Display | 16GB DDR5 | 1TB Gen 4 SSD |...",
       offer: "25% OFF",
-      oldPrice: 199.99,
-      price: 149.0,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Gm7yg2npL._AC_SL1500_.jpg",
+      oldPrice: 1299.99,
+      price: 949.0,
+      image: require("../images/offers/71Wkd-uyvnL._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Gm7yg2npL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Y6pDMjrwL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81XAo31sQNL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81ZuC8pafbL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/6125fV9U0ZL._AC_SL1500_.jpg",
+        require("../images/offers/612l2j6KEnL._AC_SL1500_.jpg"),
+        require("../images/offers/71Jipy5XiAL._AC_SL1500_.jpg"),
+        require("../images/offers/51ugQT1ewpL._AC_SL1500_.jpg"),
       ],
       color: "Black",
-      size: "27 inches",
+      size: "15 inches",
     },
 
     {
       id: 3,
       title:
-        "TP-Link TL-SG105, 5 Port Gigabit Unmanaged Ethernet Switch, Network Hub, Ethernet Splitter, Plug & Play, Fanless Metal Design, Shielded Ports, Traffic Optimization,Navy Blue",
+        "TP-Link AX1800 WiFi 6 Router (Archer AX21) – Dual Band Wireless Internet Router, Gigabit Router, Easy Mesh, Works with Alexa - A Certified for Humans Device",
       offer: "20% OFF",
-      oldPrice: 19.99,
-      price: 15.99,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71kcM4nLRjL._AC_SL1500_.jpg",
+      oldPrice: 99.99,
+      price: 84.99,
+      image: require("../images/offers/51NPaIorJiL._AC_SL1000_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71kcM4nLRjL._AC_SL1500_.jpg",
+        require("../images/offers/71zB9NiCEzL._AC_SL1500_.jpg"),
+        require("../images/offers/41LnYFsCdyL._AC_SL1000_.jpg"),
+        require("../images/offers/714ouVFX55L._AC_SL1500_.jpg"),
       ],
       color: "Navy Blue",
       size: "Normal",
@@ -223,37 +210,32 @@ const HomeScreen = () => {
     {
       id: 4,
       title:
-        "ASUS ROG Strix G15 (2022) Gaming Laptop, 15” 16:10 FHD 144Hz, GeForce RTX 3050, AMD Ryzen™ 7 6800H/HS, 16GB DDR5, 512GB PCIe SSD, Wi-Fi 6E, Windows 11, G513RC-ES73, Eclipse Gray",
+        "Sceptre New 27-inch Gaming Monitor 100Hz 1ms DisplayPort HDMI x2 100% sRGB AMD FreeSync Build-in Speakers, Eye Care Frameless Machine Black 2024 (E275W-FW100T)",
       offer: "20% OFF",
-      oldPrice: 999.99,
-      price: 848.99,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71OyrTkxpGL._AC_SL1500_.jpg",
+      oldPrice: 119.99,
+      price: 109.99,
+      image: require("../images/offers/71jdr9u9YhL._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71IA+MeLP2L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71gi+JciE8L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71khWP11sUL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51vYBgQ4pyL._AC_SL1500_.jpg",
+        require("../images/offers/61SingUvk4L._AC_SL1500_.jpg"),
+        require("../images/offers/71Lfn6fUgHL._AC_SL1500_.jpg"),
+        require("../images/offers/51JxWjNbgpL._AC_SL1500_.jpg"),
       ],
       color: "Eclipse Gray",
-      size: "15 inches",
+      size: "27 inches",
     },
 
     {
       id: 5,
       title:
-        "Ninja SFP701 Combi All-in-One Multicooker, Oven, and Air Fryer, 14-in-1 Functions,15-Minute Complete Meals, Includes 3 Accessories, Auto Cook Menu, Timer, Automatic Shut-Off, Grey, 14.92 x15.43 x13.11",
+        "Emeril Lagasse 26 QT Extra Large Air Fryer, Convection Toaster Oven with French Doors, Stainless Steel",
       offer: "20% OFF",
-      oldPrice: 229.99,
+      oldPrice: 189.99,
       price: 149.99,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Rc-+bdezL._AC_SL1500_.jpg",
+      image: require("../images/offers/811r4Po5kXL._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81Rc-+bdezL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81sP3NnHmzL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81mTPhsFjHL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/91LkRimPabL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81jc15i4u1L._AC_SL1500_.jpg",
+        require("../images/offers/71DJ7s+eoKL._AC_SL1500_.jpg"),
+        require("../images/offers/81FnDd+3JDL._AC_SL1500_.jpg"),
+        require("../images/offers/81VLX-UHF8L._AC_SL1500_.jpg"),
       ],
       color: "Eclipse Gray",
       size: "Normal",
@@ -262,17 +244,15 @@ const HomeScreen = () => {
     {
       id: 6,
       title:
-        "Amazfit GTR 4 Smart Watch for Men Android iPhone, Dual-Band GPS, Alexa Built-in, Bluetooth Calls, 150+ Sports Modes, 14-Day Battery Life, Heart Rate Blood Oxygen Monitor, 1.43”AMOLED Display,Black",
+        "Amazfit Bip 3 Smart Watch for Android iPhone, Health Fitness Tracker with 1.69 Large Display,14-Day Battery Life, 60+ Sports Modes, Blood Oxygen Heart...",
       offer: "15% OFF",
-      oldPrice: 199.99,
-      price: 169.99,
-      image:
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71aWDnZOfLL._AC_SL1500_.jpg",
+      oldPrice: 59.99,
+      price: 44.99,
+      image: require("../images/offers/61r9pDwmNHL._AC_SL1500_.jpg"),
       carouselImages: [
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71aWDnZOfLL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7117Em-zhyL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81r4KIFJ1fL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71qi3Lg2hHL._AC_SL1500_.jpg",
+        require("../images/offers/61tBag7TPZL._AC_SL1500_.jpg"),
+        require("../images/offers/6123vD48CQL._AC_SL1500_.jpg"),
+        require("../images/offers/71yL6u5tsdL._AC_SL1500_.jpg"),
       ],
       color: "Black",
       size: "Normal",
@@ -337,6 +317,7 @@ const HomeScreen = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://fakestoreapi.com/products");
+        console.log("Fake response: ", response);
 
         setProducts(response.data);
       } catch (error) {
@@ -501,7 +482,7 @@ const HomeScreen = () => {
                 onPress={() => handleOffersPress(item)}
               >
                 <Image
-                  source={{ uri: item?.image }}
+                  source={item?.image}
                   style={{
                     width: 180,
                     height: 180,
@@ -570,7 +551,7 @@ const HomeScreen = () => {
                     height: 150,
                     resizeMode: "contain",
                   }}
-                  source={{ uri: item?.image }}
+                  source={item?.image}
                 />
                 <View
                   style={{

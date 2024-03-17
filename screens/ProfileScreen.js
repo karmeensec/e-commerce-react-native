@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
 import { UserType } from "../UserContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Entypo } from "@expo/vector-icons";
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -202,7 +203,7 @@ const ProfileScreen = () => {
           <Text
             style={{ textAlign: "center", fontWeight: "bold", fontSize: 15 }}
           >
-            Log Out
+            <Entypo name="log-out" size={24} color="black" />
           </Text>
         </Pressable>
       </View>

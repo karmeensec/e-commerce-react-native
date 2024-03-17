@@ -13,7 +13,11 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import {
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/CartReducer";
 import Header from "../components/Header";
@@ -35,6 +39,8 @@ const ProductInfoScreen = () => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const selectedHomeAddress = route.params?.selectedAddress;
+
+  const isFocused = useIsFocused();
 
   const handleLikePress = () => {
     setIsLiked((prev) => !prev);
@@ -75,6 +81,14 @@ const ProductInfoScreen = () => {
     }, 60000);
   };
 
+  const handleBuyNow = () => {
+    if (!isAddedToCart) {
+      handleAddToCart(route?.params?.item);
+    }
+    // Navigate to the "Cart" screen regardless of whether the item was added to the cart or not
+    navigation.navigate("Cart");
+  };
+
   const handleViewCartPress = () => {
     navigation.navigate("Cart");
   };
@@ -95,10 +109,10 @@ const ProductInfoScreen = () => {
       <Header />
 
       <ScrollView horizontal showsHorizontalScrollIndicator={true}>
-        {route.params.carouselImages.map((item, index) => (
+        {route.params.carouselImages?.map((item, index) => (
           <ImageBackground
             key={index}
-            source={{ uri: item }}
+            source={item}
             style={{ resizeMode: "contain", marginTop: 25, width, height }}
           >
             <View
@@ -186,6 +200,15 @@ const ProductInfoScreen = () => {
           ${route?.params?.price}{" "}
         </Text>
       </View>
+
+      {route?.params?.image && (
+        <View>
+          <ImageBackground
+            source={{ uri: route?.params?.image }}
+            style={{ resizeMode: "contain", marginTop: 25, width, height }}
+          />
+        </View>
+      )}
 
       <Text
         style={{
@@ -312,6 +335,7 @@ const ProductInfoScreen = () => {
           borderWidth: 1,
           elevation: 10,
         }}
+        onPress={handleBuyNow}
       >
         <Text style={{ fontSize: 15 }}>Buy Now</Text>
       </Pressable>
